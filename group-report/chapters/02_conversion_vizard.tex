@@ -1,0 +1,35 @@
+\section{Conversión de Coordenadas e Implementación en Vizard}
+\label{sec:conversion}
+
+\subsection{Mapeo Cinemático de Ejes y Cuaterniones}
+El sistema de coordenadas de Xsens MVN define $X$ hacia adelante, $Y$ hacia la izquierda y $Z$ vertical hacia arriba. Por su parte, el motor de realidad virtual \Vizard{} (v8.3.1) \cite{worldviz2024vizard} adopta una convención diestra estándar con $X$ hacia la derecha, $Y$ vertical hacia arriba y $Z$ hacia adelante. Por consiguiente, la transformación lineal de posición espacial y reordenamiento de cuaterniones se define unívocamente mediante:
+\begin{align}
+  \mathbf{p}_{\text{Vizard}} &= \begin{bmatrix} -y_{\text{Xsens}} \\ z_{\text{Xsens}} \\ x_{\text{Xsens}} \end{bmatrix}, \label{eq:pos_map} \\
+  \mathbf{q}_{\text{Vizard}} &= \left(-y_{\text{Xsens}},\, z_{\text{Xsens}},\, x_{\text{Xsens}},\, -w_{\text{Xsens}}\right). \label{eq:quat_map}
+\end{align}
+
+Para eliminar cualquier traslación horizontal arbitraria del laboratorio inercial sin alterar la elevación anatómica del jugador respecto al piso, se aplica un desplazamiento al origen de coordenadas de modo que la pelvis en el fotograma inicial ($t = 0\text{ s}$) se ubique exactamente en $(0,\, y_{\text{pelvis},0},\, 0)\text{ m}$.
+
+\subsection{Representación Dual: Esqueleto Cinemático y Avatar Visual}
+Con el fin de evitar confusiones entre el modelo anatómico y las discrepancias de malla gráfica, la escena implementa una representación dual rigurosa:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Esqueleto de Segmentos (Representación Principal):} Compuesto por nodos esféricos rígidos (\texttt{joint\_nodes}) y líneas conectivas dinámicas (\texttt{bones\_lines}) renderizadas a partir de las coordenadas métricas reales de Xsens. Las distancias euclidianas, el cálculo del proxy de la paleta y los criterios de affordancia se computan exclusivamente en este espacio inercial real.
+  \item \textbf{Avatar Retargeteado (\texttt{vcc\_male.cfg}):} Posicionado a un costado del esqueleto (desplazamiento lateral de $+1.2\text{ m}$ en $X$) y controlado por las orientaciones relativas de los sensores sobre la jerarquía esquelética bipédica (\texttt{Bip01}). Se incluye para inspección visual cualitativa del volumen corporal del jugador.
+\end{enumerate}
+
+\subsection{Entorno Virtual y Referencias de Escala}
+El entorno recrea fielmente las dimensiones de una mesa reglamentaria de tenis de mesa de la ITTF: longitud de $2.74\text{ m}$, ancho de $1.525\text{ m}$, altura de tablero de $0.76\text{ m}$ y red central de $0.1525\text{ m}$. La mesa se orienta automáticamente a lo largo de la dirección horizontal del swing en el momento de máximo ataque ($t = 3.083\text{ s}$) y se ubica a una separación reglamentaria de $0.40\text{ m}$ respecto a la pelvis del jugador. Adicionalmente, sobre el suelo se incorpora una regla visual de escala de $1.0\text{ m}$ dividida en franjas alternadas de $10\text{ cm}$ con rotulación tridimensional, satisfaciendo el requerimiento de verificación visual independiente.
+
+\subsection{Controles de Reproducción y Selección de Condiciones}
+La escena provee control interactivo completo mediante el teclado:
+\begin{itemize}[leftmargin=*]
+  \item \texttt{ESPACIO}: Reproducción continua / Pausa.
+  \item \texttt{R}: Reinicio al instante inicial ($t = 0\text{ s}$, fotograma 0).
+  \item \texttt{S}: Alternancia de velocidad entre tiempo real ($1.0\times$) y cámara lenta calibrada ($0.25\times$), claramente indicada y rotulada en rojo en el HUD.
+  \item \texttt{1}, \texttt{2}, \texttt{3}, \texttt{4}: Selección directa de la condición ambiental de affordancia.
+  \item \texttt{V}: Ocultamiento o revelación del criterio de intercepción (protocolo ciego para observadores).
+  \item \texttt{C}: Ciclo entre 4 perspectivas de cámara (lateral, frontal, cenital y posterior).
+  \item \texttt{G}: Salto directo a los 3 instantes de validación sincronizados.
+  \item \texttt{P}: Impresión en consola de las variables cuantitativas del fotograma activo.
+  \item \texttt{T}, \texttt{A}, \texttt{K}: Visibilidad de trayectoria de paleta, avatar y esqueleto.
+\end{itemize}

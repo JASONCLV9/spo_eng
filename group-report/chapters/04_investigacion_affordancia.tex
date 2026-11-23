@@ -1,0 +1,94 @@
+\section{Investigación de la Affordancia: Diseño, Criterio y Resultados}
+\label{sec:affordancia}
+
+\subsection{Definición de la Posibilidad de Acción (Affordance)}
+En el marco de la psicología ecológica de Gibson \cite{gibson1979ecological}, una \emph{affordance} es una propiedad objetiva y real del sistema acoplado actor-entorno, definida en unidades intrínsecas a las capacidades de acción del organismo y no en métricas físicas extrínsecas abstractas.
+
+En esta investigación se formula la pregunta de viabilidad sobre la trayectoria grabada (\emph{recorded-path feasibility}):
+\begin{quote}
+\textit{«Dada la trayectoria espacio-temporal fija e invariable ejecutada por el jugador durante su golpe de ataque, ¿permite el barrido geométrico de la paleta interceptar una pelota de tenis de mesa ubicada a una distancia exterior $d$ respecto al punto de máxima velocidad del swing?»}
+\end{quote}
+
+Es indispensable enfatizar la \textbf{distinción entre intercepción geométrica y retorno exitoso}:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Intercepción Geométrica:} Comprueba exclusivamente la colisión o coincidencia espacial mínima entre los volúmenes del implemento y el objetivo. Es una condición necesaria pero no suficiente para el juego.
+  \item \textbf{Retorno Deportivo Exitoso:} Exige, además del contacto espacial, una orientación precisa de la cara de la paleta (\emph{blade pitch/yaw}), sincronización temporal micro-segundo (\emph{timing}), velocidad angular tangencial para inducir efecto liftado (\emph{topspin}) y control dinámico para superar la red y picar en el campo contrario.
+\end{itemize}
+
+Asimismo, se distingue con rigor la \textbf{affordancia} (la existencia física de la posibilidad de contacto) del \textbf{juicio} (la estimación perceptiva que un observador formula visualmente antes de conocer el resultado).
+
+\subsection{Parámetro Ambiental Manipulado y Condiciones Ordenadas}
+Se definió un proxy de paleta vinculado a la muñeca izquierda (\texttt{Left Hand}), proyectado $0.10\text{ m}$ hacia afuera a lo largo de la dirección longitudinal del antebrazo (\texttt{Forearm} $\to$ \texttt{Hand}), con un radio esférico efectivo $R_{\text{paleta}} = 0.075\text{ m}$ (representando la hoja reglamentaria de $15\text{ cm}$ de diámetro). La pelota simulada tiene radio reglamentario $R_{\text{pelota}} = 0.020\text{ m}$ ($40\text{ mm}$ de diámetro).
+
+El punto de referencia del swing $\mathbf{P}_{\text{ref}}$ corresponde a la posición del proxy en el fotograma de máxima velocidad ($i_{\text{ref}} = 185$, $t = 3.083\text{ s}$). El parámetro manipulado es la distancia de desplazamiento horizontal hacia afuera $d$ (en metros), orientada según el vector unitario $\mathbf{u}_{\text{out}}$ perpendicular a la pelvis del atleta:
+\begin{equation}
+  \mathbf{P}_{\text{pelota}}(d) = \mathbf{P}_{\text{ref}} + d \cdot \mathbf{u}_{\text{out}}.
+\end{equation}
+
+Se diseñaron cuatro condiciones ordenadas:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Condición 1 ($C_1$, $d = 0.00\text{ m}$):} Pelota en el punto óptimo de impacto nominal.
+  \item \textbf{Condición 2 ($C_2$, $d = 0.08\text{ m}$):} Pelota desplazada $8\text{ cm}$ hacia afuera.
+  \item \textbf{Condición 3 ($C_3$, $d = 0.15\text{ m}$):} Pelota desplazada $15\text{ cm}$ hacia afuera.
+  \item \textbf{Condición 4 ($C_4$, $d = 0.30\text{ m}$):} Pelota desplazada $30\text{ cm}$ hacia afuera (fuera del alcance del swing).
+\end{itemize}
+
+\subsection{Criterio Geométrica Independiente y Frontera de Factibilidad}
+El criterio geométrico objetivo de intercepción establece que existe contacto si la distancia mínima global $d_{\text{min}}$ entre el centro del proxy y el centro de la pelota a lo largo de los 379 fotogramas es menor o igual a la suma de sus radios:
+\begin{equation}
+  d_{\text{min}} = \min_{i \in [0, N-1]} \|\mathbf{p}_{\text{proxy}}(i) - \mathbf{P}_{\text{pelota}}\| \le R_{\text{paleta}} + R_{\text{pelota}} = 0.095\text{ m}.
+\end{equation}
+
+El umbral crítico predicho es $R_c = 0.095\text{ m}$. Por diseño, las condiciones $C_1$ ($0.00\text{ m}$) y $C_2$ ($0.08\text{ m}$) se ubican en el lado factible ($d < R_c$), mientras que $C_3$ ($0.15\text{ m}$) y $C_4$ ($0.30\text{ m}$) se ubican en el lado no factible ($d > R_c$). De este modo, el experimento cruza nítidamente el límite de factibilidad predicho entre las condiciones $C_2$ y $C_3$.
+
+\subsection{Resultados Experimentales y Verificación en Vizard}
+La evaluación computacional exhaustiva arrojó los resultados consolidados en la Tabla~\ref{tab:condiciones_affordancia}.
+
+\input{tables/tabla_condiciones_affordancia.tex}
+
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[b]{0.24\textwidth}
+    \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c1.png}
+    \caption{$C_1$: $d = 0.00\text{ m}$ (INTERCEPT)}
+    \label{fig:cond_c1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.24\textwidth}
+    \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c2.png}
+    \caption{$C_2$: $d = 0.08\text{ m}$ (INTERCEPT)}
+    \label{fig:cond_c2}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.24\textwidth}
+    \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c3.png}
+    \caption{$C_3$: $d = 0.15\text{ m}$ (NO INTERCEPT)}
+    \label{fig:cond_c3}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.24\textwidth}
+    \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c4.png}
+    \caption{$C_4$: $d = 0.30\text{ m}$ (NO INTERCEPT)}
+    \label{fig:cond_c4}
+  \end{subfigure}
+  \vspace{-0.25cm}
+  \caption{Capturas en Vizard para las cuatro condiciones experimentales evaluadas, mostrando la posición espacial de la pelota, el barrido de la paleta y la información desplegada en el HUD.}
+  \label{fig:vizard_condiciones}
+\end{figure*}
+
+Como se observa en la Figura~\ref{fig:vizard_condiciones}:
+\begin{itemize}[leftmargin=*]
+  \item En $C_1$, la paleta intercepta el centro de la pelota ($d_{\text{min}} = 0.000\text{ m} \le 0.095\text{ m}$) en el instante exacto del impacto ($t = 3.083\text{ s}$).
+  \item En $C_2$, el borde externo de la paleta hace contacto con la pelota con un margen de $1.5\text{ cm}$ ($d_{\text{min}} = 0.080\text{ m} \le 0.095\text{ m}$).
+  \item En $C_3$, la pelota queda fuera del volumen de contacto por $5.5\text{ cm}$ ($d_{\text{min}} = 0.150\text{ m} > 0.095\text{ m}$), produciendo el fallo geométrico.
+  \item En $C_4$, la pelota queda totalmente desfasada del barrido ($d_{\text{min}} = 0.296\text{ m}$).
+\end{itemize}
+
+\subsection{Protocolo Propuesto de Juicio Perceptual}
+Para separar experimentalmente la affordancia del juicio sin sesgar al observador, la escena implementa el siguiente protocolo:
+\begin{enumerate}[leftmargin=*]
+  \item El observador inspecciona la escena en reproducción normal ($1.0\times$) o cámara lenta ($0.25\times$) con el criterio oculto en el HUD (\texttt{Criterion: hidden (press V)}).
+  \item El observador puede explorar el espacio tridimensional mediante las 4 vistas de cámara (\texttt{C}).
+  \item Antes de cualquier revelación, el participante registra su juicio categórico binario (\textit{¿Es posible interceptar la pelota con este golpe? Sí / No}) y su nivel de confianza (1 a 5).
+  \item Finalmente, se presiona la tecla \texttt{V} para develar el veredicto del criterio objetivo calculado matemáticamente, registrándose la tasa de acierto, falsas alarmas y omisiones perceptuales.
+\end{enumerate}

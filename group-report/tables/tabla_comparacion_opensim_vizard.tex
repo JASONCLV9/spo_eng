@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\caption{Comparación cuantitativa entre OpenSim y Vizard en tres marcas de tiempo sincronizadas del golpe topspin.}
+\label{tab:comparacion_opensim_vizard}
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+\textbf{Fase / Instante} & \textbf{Variable Cinemática} & \textbf{Unidad} & \textbf{OpenSim} & \textbf{Vizard} & \textbf{Discrepancia ($\Delta$)} & \textbf{Error Rel. (\%)} \\
+\midrule
+\multirow{2}{*}{\textbf{V1: Preparación}} & Flexión codo izquierdo & grados ($^{\circ}$) & $68.03$ & $71.60$ & $+3.57^{\circ}$ & $5.25\,\%$ \\
+($t = 2.500\text{ s}$, Frame 150) & Altura mano izquierda & metros (m) & $1.124$ & $1.081$ & $-0.043\text{ m}$ & $-3.83\,\%$ \\
+\midrule
+\multirow{2}{*}{\textbf{V2: Impacto / Pico vel.}} & Flexión codo izquierdo & grados ($^{\circ}$) & $15.48$ & $20.60$ & $+5.12^{\circ}$ & $33.07\,\%$* \\
+($t = 3.083\text{ s}$, Frame 185) & Altura mano izquierda & metros (m) & $1.148$ & $1.177$ & $+0.029\text{ m}$ & $2.53\,\%$ \\
+\midrule
+\multirow{2}{*}{\textbf{V3: Terminación}} & Flexión codo izquierdo & grados ($^{\circ}$) & $95.02$ & $94.64$ & $-0.38^{\circ}$ & $-0.40\,\%$ \\
+($t = 3.600\text{ s}$, Frame 216) & Altura mano izquierda & metros (m) & $1.225$ & $1.334$ & $+0.109\text{ m}$ & $8.90\,\%$ \\
+\bottomrule
+\end{tabular*}
+\vspace{0.1cm}
+\begin{minipage}{\textwidth}
+\footnotesize
+*Nota: En el instante de impacto (V2), el codo se encuentra en máxima extensión ($15^{\circ}$--$20^{\circ}$), por lo que el denominador pequeño magnifica el porcentaje relativo a pesar de una discrepancia absoluta de solo $5.12^{\circ}$. Discrepancias asociadas a diferencias entre el modelo de eslabones articulares de OpenSim (\texttt{Rajagopal2015.osim}) y la estimación geométrica directa por segmentos de sensores inerciales Xsens MVN en Vizard.
+\end{minipage}
+\end{table*}

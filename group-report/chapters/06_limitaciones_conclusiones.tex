@@ -1,0 +1,20 @@
+\section{Limitaciones, Conclusiones y Contribución}
+\label{sec:conclusiones}
+
+\subsection{Limitaciones del Modelo y Supuestos del Estudio}
+Para interpretar correctamente el alcance de los resultados, se declaran los siguientes supuestos y limitaciones:
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Supuesto de viabilidad de trayectoria fija (\emph{recorded-path feasibility}):} Los datos cinemáticos analizados corresponden a un único intento motor grabado de topspin. La no intercepción en las condiciones $C_3$ y $C_4$ demuestra únicamente que \emph{esa trayectoria particular} no alcanza la pelota; no debe inferirse que el atleta sea biológicamente incapaz de alcanzarla, ya que en una situación ecológica real el jugador ajustaría en línea la zancada, la rotación del tronco y la extensión del hombro.
+  \item \textbf{Aproximación geométrica del proxy de paleta:} Al no disponer de un sensor inercial dedicado rígidamente fijado a la pala, el implemento se modeló como un desplazamiento axial de $0.10\text{ m}$ desde la muñeca en la dirección del antebrazo con un radio esférico de $0.075\text{ m}$. Esto no captura las pronaciones o supinaciones de muñeca que alteran el ángulo efectivo de la hoja en el impacto real.
+  \item \textbf{Pelota simulada estática:} La pelota se posicionó estática en el espacio, obviando la dinámica parabólica, la resistencia aerodinámica y el bote sobre la mesa característicos de un peloteo competitivo.
+\end{enumerate}
+
+\subsection{Conclusiones}
+Se logró reproducir con fidelidad cinemática verificable un golpe topspin de tenis de mesa en \Vizard{} a partir de datos inerciales de \Xsens{} y cinemática inversa de \OpenSim{}, con discrepancias angulares en flexión de codo inferiores a $5.12^{\circ}$ y diferencias métricas de altura de mano inferiores a $0.11\text{ m}$ en los tres fotogramas clave analizados.
+
+La investigación experimental de affordancia demostró de forma concluyente el cruce de la frontera de factibilidad predicha ($R_c = 0.095\text{ m}$), evidenciando contacto efectivo en $C_1$ ($d=0.00\text{ m}$) y $C_2$ ($d=0.08\text{ m}$), y ausencia de contacto en $C_3$ ($d=0.15\text{ m}$) y $C_4$ ($d=0.30\text{ m}$). El estudio valida empíricamente la separación entre affordancia (propiedad del sistema actor-entorno), juicio perceptual (estimación del observador) y éxito deportivo (control balístico multidimensional), subrayando además que el entorno virtual provee invariantes ópticas pero carece de flujo háptico dinámico.
+
+\subsection{Tabla de Contribuciones del Grupo}
+En cumplimiento con la rúbrica de evaluación, la Tabla~\ref{tab:contribuciones} detalla la distribución de responsabilidades y aportes técnicos de cada integrante del equipo.
+
+\input{tables/tabla_contribuciones.tex}

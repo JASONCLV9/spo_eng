@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\caption{Resultados experimentales de la investigación de affordancia en Vizard para las cuatro condiciones ordenadas.}
+\label{tab:condiciones_affordancia}
+\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cccccccl@{}}
+\toprule
+\textbf{Condición} & \textbf{Offset $d$ (m)} & \textbf{Posibilidad Predicha} & \textbf{Dist. Mínima ($d_{min}$)} & \textbf{Tiempo ($t_{min}$)} & \textbf{Fotograma} & \textbf{Umbral ($R_{c}$)} & \textbf{Resultado del Criterio} \\
+\midrule
+$C_1$ & $0.00\text{ m}$ & Factible (Intercepción) & $0.000\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{INTERCEPT} (Factible) \\
+$C_2$ & $0.08\text{ m}$ & Factible (Intercepción) & $0.080\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{INTERCEPT} (Factible) \\
+\midrule
+\multicolumn{8}{c}{\textit{--- Límite Teórico de Factibilidad ($R_c = R_{paleta} + R_{pelota} = 0.075 + 0.020 = 0.095\text{ m}$) ---}} \\
+\midrule
+$C_3$ & $0.15\text{ m}$ & No factible (Sin intercepción) & $0.150\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{NO INTERCEPT} (No factible) \\
+$C_4$ & $0.30\text{ m}$ & No factible (Sin intercepción) & $0.296\text{ m}$ & $1.683\text{ s}$ & $101$ & $0.095\text{ m}$ & \textbf{NO INTERCEPT} (No factible) \\
+\bottomrule
+\end{tabular*}
+\vspace{0.1cm}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textbf{Definiciones:} $d$ representa el desplazamiento de la pelota hacia afuera a lo largo del eje perpendicular al plano de ataque desde el punto de máxima velocidad del proxy. El criterio de intercepción geométrica se cumple si y solo si $d_{min} \le R_{paleta} + R_{pelota} = 0.095\text{ m}$. Las condiciones $C_2$ y $C_3$ delimitan los lados opuestos de la frontera de factibilidad predicha.
+\end{minipage}
+\end{table*}

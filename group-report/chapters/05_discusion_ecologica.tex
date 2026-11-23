@@ -1,0 +1,27 @@
+\section{Interpretación y Discusión Ecológica (Gibson)}
+\label{sec:discusion}
+
+\subsection{Relaciones Ópticas y Estructura del Flujo Visual}
+De acuerdo con Gibson \cite{gibson1979ecological}, la información para guiar la acción no reside en sensaciones fragmentadas reconstruidas cognitivamente, sino en patrones invariantes del conjunto óptico ambiental (\emph{ambient optic array}). En nuestra escena de \Vizard{}, varias relaciones ópticas especifican la posibilidad de intercepción:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Tasa de expansión óptica (\emph{optical looming}):} La tasa de cambio del ángulo subtendido visualmente por la pelota y la paleta especifica directamente el tiempo restante para el contacto ($\tau(t) = \theta / \dot{\theta}$), permitiendo al observador anticipar la coincidencia temporal sin estimar distancias absolutas \cite{fajen2005affordance}.
+  \item \textbf{Paralaje de movimiento y oclusión óptica:} El desplazamiento relativo del implemento frente a las líneas reglamentarias de la mesa y la red entrega información geométrica inequívoca sobre la profundidad relativa y el margen de error lateral en cada condición.
+\end{itemize}
+
+\subsection{Affordances Relativas al Actor y Perspectiva del Observador}
+Un concepto fundamental en la teoría ecológica es que las affordances son \textbf{relativas al actor}: las dimensiones de la mesa y la separación de la pelota solo cobran significado en relación con la longitud de la extremidad del jugador, su postura segmentaria y la velocidad que puede impartir al implemento. 
+
+Asimismo, la posibilidad de conmutar entre cuatro vistas de cámara en \Vizard{} (lateral, frontal, cenital y posterior desde la espalda del jugador) ilustra que \textbf{una perspectiva específica del observador no crea un entorno privado}:
+\begin{quote}
+\textit{«El hecho de que cada punto de observación ofrezca un conjunto óptico particular no significa que existan múltiples realidades. La estructura invariante subyacente del evento físico (la trayectoria de la paleta y la posición fija de la pelota) permanece idéntica e inmutable para cualquier observador»} \cite{gibson1979ecological}.
+\end{quote}
+El cambio de punto de vista visual simplemente transforma el flujo perspectivo, pero la affordancia de intercepción objetiva se mantiene invariable.
+
+\subsection{Covariación Tacto-Postura y Límites Hápticos de la Simulación}
+Gibson \cite{gibson1966senses} demostró que el sistema háptico opera como un sistema perceptual activo: la percepción háptica dinámica no depende de receptores aislados de presión en la piel, sino de la \textbf{covariación intrínseca entre la postura articular y las fuerzas de contacto} (\emph{touch--posture covariation}) \cite{kim2026haptic}. Cuando un jugador de tenis de mesa empuña una paleta y ejecuta un golpe, los momentos de inercia del implemento (\emph{inertia tensor}) y las deformaciones viscoelásticas de los tejidos musculares proporcionan información inmediata sobre la orientación de la hoja y la posibilidad de golpeo.
+
+En este punto es crucial formular una \textbf{declaración explícita sobre los límites de nuestra implementación}:
+\begin{quote}
+\textbf{Nuestra escena en Vizard entrega exclusivamente información visual y óptica cinemática; no proporciona ninguna interacción háptica real.}
+\end{quote}
+La animación tridimensional de un avatar y el cálculo computacional de la distancia en el HUD no constituyen captación háptica activa. El observador percibe únicamente el correlato óptico de la acción, careciendo del flujo háptico continuo (fuerza de reacción, resistencia inercial del aire y retroalimentación de impacto) que caracteriza la ejecución motora natural en el deporte real \cite{kim2026haptic}.
