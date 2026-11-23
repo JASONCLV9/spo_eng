@@ -9,24 +9,19 @@ with $\mathbf{v}_{se}$ (shoulder$\to$elbow) and $\mathbf{v}_{we}$ (wrist$\to$elb
 
 \input{tables/tabla_comparacion_opensim_vizard.tex}
 
-% \begin{figure}[t]
-% \centering
-% % Top row: Vizard screenshots. Bottom row: matching OpenSim frames (V1-V3.png).
-% % If V1--V3.png are actually the Vizard captures, swap the file names between rows.
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t2500.png}\caption{Vizard, $t=2.500$ s (V1)}\end{subfigure}\hfill
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3083.png}\caption{Vizard, $t=3.083$ s (V2)}\end{subfigure}\hfill
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3600.png}\caption{Vizard, $t=3.600$ s (V3)}\end{subfigure}\\[4pt]
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V1.png}\caption{OpenSim, $t=2.500$ s}\end{subfigure}\hfill
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V2.png}\caption{OpenSim, $t=3.083$ s}\end{subfigure}\hfill
-% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V3.png}\caption{OpenSim, $t=3.600$ s}\end{subfigure}
-% \caption{Vizard (top) and OpenSim (bottom) at the three validation timestamps (skeleton, avatar, table, ruler, HUD).}\label{fig:three-frames}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t2500.png}\caption{Vizard, $t=2.500$ s (V1)}\end{subfigure}\hfill
+    \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3083.png}\caption{Vizard, $t=3.083$ s (V2)}\end{subfigure}\hfill
+    \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3600.png}\caption{Vizard, $t=3.600$ s (V3)}\end{subfigure}
+    \caption{Vizard at the three validation timestamps (skeleton, avatar, table, ruler, HUD).}\label{fig:three-frames}
+\end{figure}
 
-% \begin{figure}[t]
-%     \centering
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{comp_elbow_flex.png}\caption{Left elbow flexion [deg]}\end{subfigure}\hfill
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{comp_hand_height.png}\caption{Left hand height [m]}\end{subfigure}
-%     \caption{Continuous OpenSim--Vizard time series over the full trial (\SI{60}{\hertz}), with the three validation instants V1--V3 marked.}\label{fig:timeseries}
-% \end{figure}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.4\textwidth}\includegraphics[width=\linewidth]{elbow_flex_l_Matlab.png}\caption{Left elbow flexion [deg]}\end{subfigure}\hfill
+    \begin{subfigure}{0.4\textwidth}\includegraphics[width=\linewidth]{left_hand_height.png}\caption{Left hand height [m]}\end{subfigure}
+    \caption{Continuous OpenSim time series over the full trial (\SI{60}{\hertz}), with the three validation instants marked.}\label{fig:timeseries}
+\end{figure}
 
 \paragraph{Reading the checks.} Elbow angle agrees within $5.12^\circ$ at all three instants; the largest value occurs near full extension ($15.5^\circ$ vs.\ $20.6^\circ$), where a small absolute error is a large relative one ($33\,\%$). Likely cause: OpenSim models the elbow as a 1-DoF hinge, whereas Vizard derives the angle from three IMU-tracked segments that include carrying-angle and soft-tissue artifacts. Hand height is within \SI{4}{\centi\meter} at V1 and V2 but \textbf{\SI{10.4}{\centi\meter} at V3}, which we do not regard as negligible. Candidate causes, to be tested rather than assumed: (i)~scapular/clavicular constraints in OpenSim versus free shoulder-girdle motion in the IMU data; (ii)~a different anatomical point (OpenSim hand centre vs.\ Xsens hand-segment origin); (iii)~a one-frame (\SI{16.7}{\milli\second}) offset during fast upward motion, checkable by comparing frames 215 and 217. Because the affordance criterion is evaluated at V2 (error \SI{2.7}{\centi\meter} in height), this mismatch matters mainly for conditions near the boundary (Section~\ref{sec:affordance}).

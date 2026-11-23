@@ -1,20 +1,20 @@
 \section{Motion provenance}\label{sec:prov}
 
-The movement analysed is the one captured, processed in OpenSim~\cite{delp2007,rajagopal2016} and analysed earlier in the course: a left-handed table tennis topspin. Table~\ref{tab:provenance} documents the source, trial, interval, sampling rate, units, axis conventions and origin used in the Vizard~\cite{vizard2024} project.
+The movement analysed is the one captured, processed in OpenSim~\cite{rajagopal2016} and analysed in the previous report (EC1): a left-handed table tennis topspin. Table~\ref{tab:provenance} documents the source, trial, interval, sampling rate, units, axis conventions and origin used in the Vizard project.
 
-\begin{table}[t]
-\centering
-\caption{Provenance of the recorded motion.}\label{tab:provenance}
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}l Y@{}}
-\toprule
-\textbf{Item} & \textbf{Value}\\
-\midrule
-Source / trial & Xsens MVN suit, 17 MTw Awinda IMUs, 23 segments. Trial \texttt{Top\_spin}: \texttt{Top\_spin\_SegmentPosition.csv} and \texttt{Top\_spin\_SegmentOrientation.csv}\\
-Interval, rate, units & Full trial used: frames 0--378 ($\approx 0$--\SI{6.3}{\second}) at \SI{60}{\hertz} (\SI{16.67}{\milli\second}). Positions in m; orientations as unit quaternions $(w,x,y,z)$\\
-OpenSim reference & \texttt{Rajagopal2015.osim}, scaled to the participant; IK output \texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}; extracted series \texttt{elbow\_flex\_l.sto} and \texttt{left\_hand\_height.sto} (OpenSim $Y$ up)\\
-Axes & Xsens: $X$ forward, $Y$ left, $Z$ up. Vizard: $X$ right, $Y$ up, $Z$ forward\\
-Origin & Pelvis at $t=0$ shifted to $(0,\,y_{\mathrm{pelvis},0},\,0)$: horizontal offset removed, true floor height preserved\\
-\bottomrule
-\end{tabularx}
+\begin{table}[h]
+    \centering
+    \caption{Provenance of the recorded motion.}\label{tab:provenance}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{@{}l Y@{}}
+        \toprule
+        \textbf{Item}         & \textbf{Value}                                                                                                                                                                             \\
+        \midrule
+        Source / trial        & Xsens MVN suit, 17 MTw Awinda IMUs, 23 segments. Trial \texttt{Top\_spin}: \texttt{Top\_spin\_SegmentPosition.csv} and \texttt{Top\_spin\_SegmentOrientation.csv}                          \\
+        Interval, rate, units & Full trial used: frames 0--378 ($\approx 0$--\SI{6.3}{\second}) at \SI{60}{\hertz} (\SI{16.67}{\milli\second}). Positions in m; orientations as unit quaternions $(w,x,y,z)$               \\
+        OpenSim reference     & \texttt{Rajagopal2015.osim}; IK output \texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}; extracted series \texttt{elbow\_flex\_l.sto} and \texttt{left\_hand\_height.sto} (OpenSim $Y$ up) \\
+        Axes                  & Xsens: $X$ forward, $Y$ left, $Z$ up. Vizard: $X$ right, $Y$ up, $Z$ forward                                                                                                               \\
+        Origin                & Pelvis at $t=0$ shifted to $(0,\,y_{\mathrm{pelvis},0},\,0)$: horizontal offset removed, true floor height preserved                                                                       \\
+        \bottomrule
+    \end{tabularx}
 \end{table}
