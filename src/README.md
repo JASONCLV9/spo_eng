@@ -18,9 +18,10 @@
 ├───required-assets
 │       elbow_flex_l.csv
 │       elbow_flex_l.sto
+│       info_theory.m
 │       left_hand_height.csv
 │       left_hand_height.sto
-│       Plots.m
+│       opensim_data.m
 │       Rajagopal2015.osim
 │       Top_spin-001_Xsens_jointangle_q.mot
 │
