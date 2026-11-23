@@ -1,8 +1,8 @@
 \section{Affordance investigation}\label{sec:affordance}
 
-\subsection{Action possibility, actor, and what is \emph{not} claimed}
+\subsection{Action possibility and actor}
 
-\textbf{Question (recorded-path feasibility).} \emph{For this actor's recorded stroke, does the swept racket volume intercept a ball placed at offset $d$ from the peak-speed impact point?} The affordance is a relation between the actor's effectivities (arm length, racket size, swing path and speed) and an environmental property (ball position), neither located in the ball's coordinates nor in the arm alone~\cite{gibson1979,warren1984}. Because only one reference stroke is used, the threshold is \textbf{not} the player's maximum capacity: in live play footwork, trunk rotation, shoulder extension or timing could extend reach. Geometric interception is also \textbf{not} a successful return, which additionally needs timing, racket pitch/yaw, rubber friction, restitution and Magnus effects.
+\textbf{Question.} \emph{For this actor's recorded stroke, does the moving racket intercept a ball placed at offset $d$ from the peak-speed impact point?} The affordance is a relation between the actor's effectivities (arm length, racket size, swing path and speed) and an environmental property (ball position), neither located in the ball's coordinates nor in the arm alone~\cite{gibson1979}. Because only one reference stroke is used, the threshold is \textbf{not} the player's maximum capacity: in live play footwork, trunk rotation, shoulder extension or timing could extend reach.
 
 \subsection{Effector surrogate, criterion and boundary prediction}
 
@@ -15,14 +15,14 @@ Movement, $1.0\times$ playback, default camera and all unrelated scene features 
 
 \input{tables/tabla_condiciones_affordancia.tex}
 
-% \begin{figure*}[t]
-% \centering
-% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C1.png}\caption{C1, $d=0.00$ m (intercept)}\end{subfigure}\hfill
-% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C2.png}\caption{C2, $d=0.08$ m (intercept)}\end{subfigure}\hfill
-% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C3.png}\caption{C3, $d=0.15$ m (no contact)}\end{subfigure}\hfill
-% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C4.png}\caption{C4, $d=0.30$ m (no contact)}\end{subfigure}
-% \caption{Vizard screenshots for C1--C4 at the timestamps in Table~\ref{tab:conditions}, showing ball, racket-sweep trail, and HUD distance.}\label{fig:conditions}
-% \end{figure*}
+\begin{figure*}[h]
+    \centering
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C1.png}\caption{C1, $d=0.00$ m (int.)}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C2.png}\caption{C2, $d=0.08$ m (int.)}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C3.png}\caption{C3, $d=0.15$ m (no con.)}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C4.png}\caption{C4, $d=0.30$ m (no con.)}\end{subfigure}
+    \caption{Vizard screenshots for conditions C1--C4.}\label{fig:conditions}
+\end{figure*}
 
 \paragraph{Critical reading.} The design crosses the boundary (C2$\to$C3), so the investigation can discriminate. The result is, however, a statement about the model: C2 clears $\Rc$ by only \SI{1.5}{\centi\meter}, which is smaller than the \SI{2.7}{\centi\meter} hand-height discrepancy at V2, so C2's ``intercept'' is the least robust verdict. C3 (\SI{5.5}{\centi\meter} beyond) and C4 are robust. Adding offsets at 0.095 and \SI{0.11}{\meter} would localize the boundary more tightly. Annex~\ref{app:info} shows that stroke-to-stroke variability (RMS spread $\approx$ \SI{6.8}{\centi\meter}) is of the same size as the boundary, so the affordance is better described as a probability than as a sharp yes/no.
 

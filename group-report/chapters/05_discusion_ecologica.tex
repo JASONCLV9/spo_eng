@@ -8,54 +8,37 @@
 
 \subsection{Camera geometry in the scene}
 
-\begin{table}[t]
-\centering
-\caption{Camera geometry from the script and nominal visual angles (distance to the initial pelvis; the true distance to ball or racket differs by up to $\approx\SI{0.8}{\meter}$). Angles are the maximum, unforeshortened visual angles of the ball (\O\ 40 mm), the blade (\O\ 150 mm) and the 1.5 cm margin of C2 \tagsim.}\label{tab:cameras}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabularx}{\textwidth}{@{}l Y Y c c c c@{}}
-\toprule
-\textbf{View (key C)} & \textbf{Camera position (script)} & \textbf{Looks at} & \textbf{Dist.} & \textbf{Ball} & \textbf{Blade} & \textbf{C2 margin}\\
-\midrule
-1 Side (racket side) & \SI{3.0}{\meter} to the player's left, $+\SI{0.6}{\meter}$ up, $-\SI{0.5}{\meter}$ world $Z$ & Pelvis, $y=\SI{1.0}{\meter}$ & 3.10 m & $0.74^\circ$ & $2.77^\circ$ & $16.6'$\\
-2 Front & \SI{3.5}{\meter} ahead (\SI{0.36}{\meter} beyond table end), $+\SI{1.0}{\meter}$ up & Pelvis, $y=\SI{1.0}{\meter}$ & 3.64 m & $0.63^\circ$ & $2.36^\circ$ & $14.2'$\\
-3 Top-down & \SI{4.0}{\meter} above pelvis (\SI{0.01}{\meter} $z$-offset) & Pelvis, $y=\SI{0.8}{\meter}$ & 4.00 m & $0.57^\circ$ & $2.15^\circ$ & $12.9'$\\
-4 Behind & \SI{2.5}{\meter} behind, $+\SI{0.8}{\meter}$ up & Table centre, $y=\SI{0.76}{\meter}$ & 2.62 m & $0.87^\circ$ & $3.27^\circ$ & $19.6'$\\
-\bottomrule
-\end{tabularx}
+\begin{table}[h]
+    \centering
+    \caption{Camera geometry from the script and nominal visual angles (distance to the initial pelvis; the true distance to ball or racket differs by up to $\approx\SI{0.8}{\meter}$). Angles are the maximum, unforeshortened visual angles of the ball (\O\ 40 mm), the blade (\O\ 150 mm) and the 1.5 cm margin of C2 \tagsim.}\label{tab:cameras}
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabularx}{\textwidth}{@{}l Y Y c c c c@{}}
+        \toprule
+        \textbf{View (key C)} & \textbf{Camera position (script)}                                                            & \textbf{Looks at}                   & \textbf{Dist.} & \textbf{Ball} & \textbf{Blade} & \textbf{C2 margin} \\
+        \midrule
+        1 Side (racket side)  & \SI{3.0}{\meter} to the player's left, $+\SI{0.6}{\meter}$ up, $-\SI{0.5}{\meter}$ world $Z$ & Pelvis, $y=\SI{1.0}{\meter}$        & 3.10 m         & $0.74^\circ$  & $2.77^\circ$   & $16.6'$            \\
+        2 Front               & \SI{3.5}{\meter} ahead (\SI{0.36}{\meter} beyond table end), $+\SI{1.0}{\meter}$ up          & Pelvis, $y=\SI{1.0}{\meter}$        & 3.64 m         & $0.63^\circ$  & $2.36^\circ$   & $14.2'$            \\
+        3 Top-down            & \SI{4.0}{\meter} above pelvis (\SI{0.01}{\meter} $z$-offset)                                 & Pelvis, $y=\SI{0.8}{\meter}$        & 4.00 m         & $0.57^\circ$  & $2.15^\circ$   & $12.9'$            \\
+        4 Behind              & \SI{2.5}{\meter} behind, $+\SI{0.8}{\meter}$ up                                              & Table centre, $y=\SI{0.76}{\meter}$ & 2.62 m         & $0.87^\circ$  & $3.27^\circ$   & $19.6'$            \\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
-\centering
-% No camera-view screenshots were listed in figures/. Replace each \figph by
-% \includegraphics[width=\linewidth]{view1_side.png} (etc.) once you have them.
-\begin{subfigure}{0.24\textwidth}\figph{View 1 -- Side}\end{subfigure}\hfill
-\begin{subfigure}{0.24\textwidth}\figph{View 2 -- Front}\end{subfigure}\hfill
-\begin{subfigure}{0.24\textwidth}\figph{View 3 -- Top-down}\end{subfigure}\hfill
-\begin{subfigure}{0.24\textwidth}\figph{View 4 -- Behind}\end{subfigure}
-\caption{The four camera views at $t=3.083$ s for the same condition (e.g.\ C2), keeping the skeleton representation fixed.}\label{fig:cameras}
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{view1.png}\caption{View 1 -- Side}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{view2.png}\caption{View 2 -- Front}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{view3.png}\caption{View 3 -- Top-down}\end{subfigure}\hfill
+    \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{view4.png}\caption{View 4 -- Behind}\end{subfigure}
+    \caption{The four camera views at $t=3.083$ s for the same condition C1.}\label{fig:cameras}
 \end{figure}
 
 \subsection{Foreshortening and occlusion by viewpoint}
 
 Let $\varphi$ be the angle between the line of sight and the displacement from racket to ball; the projected gap is $d\sin\varphi$. Let $\alpha$ be the angle between the offset direction $\uout$ (horizontal pelvis$\to$proxy at $\tref$) and the player's forward axis ($\alpha=\todo{insert value from the console}$). Then Table~\ref{tab:viewpoints} follows.
 
-\begin{table}[t]
-\centering
-\caption{Expected effect of viewpoint on information about the same affordance (geometric reasoning from the script's camera definitions; no occlusion fractions have been measured yet) \tagsim.}\label{tab:viewpoints}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}R{1.1cm} R{2.9cm} R{2.4cm} R{5.2cm} R{4.2cm}@{}}
-\toprule
-\textbf{View} & \textbf{Visible gap of $d$} & \textbf{Lost along line of sight} & \textbf{What occludes what} & \textbf{Flow / heading information}\\
-\midrule
-Side & $\approx d\,\lvert\cos\alpha\rvert$ (full if the offset is mostly forward) & Lateral part, $d\sin\alpha$ & Least self-occlusion: racket arm is nearest the camera, torso on the far side; the translucent blade ($\alpha_{\mathrm{blend}}=0.35$) can overlay the ball & Lateral translation, weak expansion; good angular gap-closure rate; best view of stroke arc and blade pitch\\
-Front & $\approx d\,\lvert\sin\alpha\rvert$ & Forward part, $d\cos\alpha$ & Backswing blade hidden behind torso/hips; net (\SI{0.9}{\meter}) and table lie below the sightline (camera $\ge\SI{1.0}{\meter}$ above pelvis; hand $\approx\SI{1.18}{\meter}$ at impact) & Strongest looming of the approaching blade; focus of expansion specifies heading\\
-Top-down & $d$ (full horizontal offset) & Vertical part of the 3-D miss distance (hand vs.\ ball height); net clearance & Head and shoulders may cover the lower arm; table lines give plan-view references & Plan-view gap closure; no depth-from-expansion; least ecologically valid\\
-Behind & $\approx d\,\lvert\sin\alpha\rvert$ & Forward part, $d\cos\alpha$ & Greatest self-occlusion: torso, shoulder and head can hide the arm, blade and ball near the boundary & Contracting flow (blade recedes); clear view of table and net layout\\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/tabla_viewpoint.tex}
 
 \textbf{Occlusion in this scene is under-represented.} The skeleton is drawn with thin lines (4~px) and \SI{2.5}{\centi\meter} joint spheres, while the avatar is placed \SI{1.5}{\meter} beside it ($+X$) and therefore cannot occlude the proxy or ball. A real observer would face opaque limbs and trunk; our views are mostly see-through. Conversely, a ball of $0.6$--$0.9^\circ$ can be hidden by a single line or sphere, so even this weak occlusion matters near the boundary. The skeleton/avatar choice must therefore be fixed and reported for all judgments. \tagprop{} \textbf{occlusion metric:} for each camera and frame in the interval $\tref\pm\SI{0.3}{\second}$, cast rays from the camera to the ball centre and to the blade centre, test them against capsules around the skeleton links (e.g.\ $r=\SI{0.04}{\meter}$ forearm, $0.05$ upper arm, $0.15$ trunk, $0.10$ head), and report the fraction of occluded frames and the visible gap angle. A \textbf{temporal occlusion} variant (blackout before $\tref$) would test whether pre-impact kinematics suffice to specify the outcome.
 

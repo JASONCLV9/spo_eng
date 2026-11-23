@@ -1,11 +1,11 @@
 \section{Limitations and conclusions}\label{sec:limits}
 
 \begin{itemize}
-\item \textbf{Single reference stroke:} non-intersection of C3/C4 says only that this path misses; it is not the actor's maximum reach. The other two strokes in the trial (Annex~\ref{app:info}) show about \SI{7}{\centi\meter} of stroke-to-stroke variability.
-\item \textbf{Racket surrogate and static ball:} no racket sensor, no wrist pronation/supination, no ball flight, spin or rebound; timing error is zero by construction at $\tref$.
-\item \textbf{Fidelity limits:} $5.12^\circ$ elbow and up to \SI{10.4}{\centi\meter} hand-height differences (V3) show that Vizard and OpenSim agree well but not perfectly; near-boundary verdicts (C2) should be read with that uncertainty.
-\item \textbf{Camera and occlusion:} occlusion is under-represented (see-through skeleton, avatar beside it), the four cameras are discrete and monocular, and occlusion fractions are proposed, not measured.
-\item \textbf{No observed judgments:} perceptual claims are proposals; replace Section~\ref{sec:protocol} with observed data if collected (with informed consent).
+    \item \textbf{Single reference stroke:} non-intersection of C3/C4 says only that this path misses; it is not the actor's maximum reach. The other two strokes in the trial (Annex~\ref{app:info}) show about \SI{7}{\centi\meter} of stroke-to-stroke variability.
+    \item \textbf{Racket surrogate and static ball:} no racket sensor, no wrist pronation/supination, no ball flight, spin or rebound; timing error is zero by construction at $\tref$.
+    \item \textbf{Fidelity limits:} $5.12^\circ$ elbow and up to \SI{10.4}{\centi\meter} hand-height differences (V3) show that Vizard and OpenSim agree well but not perfectly; near-boundary verdicts (C2) should be read with that uncertainty.
+    \item \textbf{Camera and occlusion:} occlusion is under-represented (see-through skeleton, avatar beside it), the four cameras are discrete and monocular, and occlusion fractions are proposed, not measured.
+    \item \textbf{No observed judgments:} perceptual claims are proposals; replace Section~\ref{sec:protocol} with observed data if collected (with informed consent).
 \end{itemize}
 
 \paragraph{Conclusion.} The Vizard scene reproduces the recorded stroke with timing preserved and angular agreement within $5.12^\circ$ at three instants. Under the stated surrogate and criterion, the recorded sweep geometrically intercepts offsets of 0.00 and \SI{0.08}{\meter} but not 0.15 and \SI{0.30}{\meter}, with a boundary at \SI{0.095}{\meter}. Camera viewpoint changes the optical information that specifies the boundary (visible gap, occlusion, flow) but not the affordance computed in world coordinates. This supports the separation of affordance (a simulated actor--environment relation), judgment (not yet measured) and outcome (not tested), and the visual-only nature of the display.
