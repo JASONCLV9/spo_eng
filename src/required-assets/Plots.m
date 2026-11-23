@@ -10,7 +10,6 @@ plot(time, positions, 'LineWidth', 1.5);
 xlabel('Time [s]');
 ylabel('Left hand height [m]');
 grid on;
-% legend('Height', 'Location', 'best');
 xlim([0, max(time)])
 
 
@@ -24,5 +23,4 @@ plot(time, positions, 'LineWidth', 1.5);
 xlabel('Time [s]');
 ylabel('Left elbow flexion [deg]');
 grid on;
-% legend('Height', 'Location', 'best');
 xlim([0, max(time)])
