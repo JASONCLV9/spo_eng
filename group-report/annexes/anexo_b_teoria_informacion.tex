@@ -6,7 +6,7 @@
 
 The recording contains \textbf{three topspin strokes} in one trial (379 frames, \SI{60}{\hertz}). Using the same paddle proxy as the Vizard scene (left wrist $+\SI{0.10}{\meter}$ along the forearm), the proxy speed has three clear forward-swing peaks. Each stroke is analysed in a window of $\pm15$ frames ($\pm\SI{0.25}{\second}$, 31 frames) around its peak. Everything below is computed from the recorded kinematics and the geometric criterion of Eq.~\eqref{eq:criterion}, so it is \tagobs{} (kinematics) or \tagsim{} (ball placement and criterion); the observer example in Problem~5 uses assumed rates and is \tagill{}, not participant data.
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{The three strokes (Vizard axes: $X$ right, $Y$ up, $Z$ forward). The RMS radial spread of the three impact points about their mean is \textbf{0.068 m}, which is $72\,\%$ of the contact threshold $\Rc=\SI{0.095}{\meter}$.}\label{tab:strokes}
     \footnotesize
@@ -27,7 +27,7 @@ The recording contains \textbf{three topspin strokes} in one trial (379 frames, 
 
 For a discrete variable with probabilities $p_i$, the Shannon entropy is $H=-\sum_i p_i\log p_i$. With $\log_2$ the unit is the \textbf{bit}; with the natural logarithm it is the \textbf{nat}. They differ only by a constant: $H_{\mathrm{nats}}=H_{\mathrm{bits}}\ln 2$ (1 bit $=0.6931$ nats; 1 nat $=1.4427$ bits). The distribution used is the \emph{occupancy} of proxy speed: the fraction of frames spent in each \SI{1}{\meter\per\second} bin (8 bins, maximum entropy $\log_2 8=3$ bits). It describes how widely the stroke spreads over speeds; frames are autocorrelated, so it is not a sample of independent trials.
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Entropy of the proxy-speed occupancy \tagobs. The plug-in estimate is biased low for 31 frames in 8 bins by about $(K-1)/(2N)=0.11$ nats (0.16 bits, Miller--Madow); the three strokes are affected equally.}\label{tab:entropy}
     \footnotesize
@@ -43,18 +43,18 @@ For a discrete variable with probabilities $p_i$, the Shannon entropy is $H=-\su
     \end{tabularx}
 \end{table}
 
-% \begin{figure}[h]
-% \centering
-% \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig1_speed_timeseries.png}\caption{Proxy speed, three stroke windows}\end{subfigure}\hfill
-% \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig2_speed_histograms.png}\caption{Speed-occupancy distributions}\end{subfigure}
-% \caption{(a) Proxy speed with the three stroke windows. (b) Speed-occupancy distributions with their entropies in bits and nats (see also \texttt{Fig7\_entropy\_bits\_nats.png}).}\label{fig:entropy}
-% \end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig1_speed_timeseries.png}\caption{Proxy speed, three stroke windows}\end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig2_speed_histograms.png}\caption{Speed-occupancy distributions}\end{subfigure}
+    \caption{(a) Proxy speed with the three stroke windows. (b) Speed-occupancy distributions with their entropies in bits and nats (see also \texttt{Fig7\_entropy\_bits\_nats.png}).}\label{fig:entropy}
+\end{figure}
 
 \subsection{Kullback--Leibler divergence between strokes}
 
 The KL divergence $\KL(P\Vert Q)=\sum_i p_i\log_2(p_i/q_i)$ is the extra number of bits needed when data distributed as $P$ are coded with a code built for $Q$. It is \textbf{not symmetric} and is zero only if $P=Q$. A pseudo-count of 0.5 per bin (Jeffreys smoothing) avoids empty bins.
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{$\KL(\text{row}\Vert\text{column})$ of the proxy-speed occupancy, in bits \tagobs. In nats multiply by 0.693.}\label{tab:kl}
     \footnotesize
@@ -69,12 +69,12 @@ The KL divergence $\KL(P\Vert Q)=\sum_i p_i\log_2(p_i/q_i)$ is the extra number 
     \end{tabularx}
 \end{table}
 
-% \begin{figure}[h]
-%     \centering
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig5_KL_matrix.png}\caption{KL matrix between strokes}\end{subfigure}\hfill
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig3_topview_impacts.png}\caption{Top view of paths, impacts, balls C1--C4}\end{subfigure}
-%     \caption{(a) KL matrix between strokes. (b) Top view of the paths, impact points and the balls C1--C4 with their $\Rc$ circles.}\label{fig:kl}
-% \end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig5_KL_matrix.png}\caption{KL matrix between strokes}\end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig3_topview_impacts.png}\caption{Top view of paths, impacts, balls C1--C4}\end{subfigure}
+    \caption{(a) KL matrix between strokes. (b) Top view of the paths, impact points and the balls C1--C4 with their $\Rc$ circles.}\label{fig:kl}
+\end{figure}
 
 A second use of KL is \tagprop{} for the judgment data: $\KL(P_{\mathrm{obs}}\Vert P_{\mathrm{ideal}})$ between the observed proportion of ``possible'' responses per offset and the criterion (smoothed), computed per camera view; it measures, in bits, how far each viewpoint leaves the observer from the ideal.
 
@@ -84,7 +84,7 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
 
 \paragraph{Problem 1 -- Frames: is a fast racket informative about contact?} $A$ = proxy speed $\ge\SI{4}{\meter\per\second}$ (57 of 379 frames); $B$ = proxy within $\Rc$ of the ball (contact frame). Counts over all frames:
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Frame counts for Problem 1 \tagsim.}\label{tab:p1}
     \footnotesize
@@ -104,7 +104,7 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
 
 \paragraph{Problem 2 -- Stroke trials: does near/far predict interception?} Using the three strokes against all four ball positions gives 12 stroke-trials. $A$ = ball near ($d\le\SI{0.08}{\meter}$) or far ($d\ge\SI{0.15}{\meter}$); $B$ = the stroke's closest approach is $\le\Rc$.
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Trial counts for Problem 2 \tagsim.}\label{tab:p2}
     \footnotesize
@@ -123,7 +123,7 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
 
 \paragraph{Problem 3 -- Which stroke intercepts, and what is the probability?}
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Closest approach \dmin\ (m) per stroke window; $^{*}$ = intercept \tagsim. Linear interpolation between frames lowers \dmin\ by at most 0.008 m (e.g.\ C1, S1: 0.075 m) and changes no verdict.}\label{tab:p3}
     \footnotesize
@@ -141,16 +141,16 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
 
 \emph{Two events:} $A$ = ``stroke is S2 (the reference)'', $B$ = ``intercepts C2''. The $2\times2$ table (S2 and intercept: 1; S2 and no intercept: 0; other and intercept: 0; other and no intercept: 2) gives $P(B\given A)=1$, $P(B\given\neg A)=0$ and, by Bayes, $\mathbf{P(\text{S2}\given\text{intercept at C2})=1}$: the C2 verdict of the report holds only for the stroke on which the ball was placed. \emph{Bayes with a uniform prior:} after $s$ intercepts in $n=3$ strokes the posterior is Beta$(1+s,\,1+n-s)$; the 95\,\% credible interval is $[0.40,\,0.99]$ for C1, $[0.07,\,0.81]$ for C2 and $[0.006,\,0.60]$ for C3 and C4. The uncertainty about the next stroke is $H=0.72$, $0.97$, $0.72$ and $0.72$ bits for C1--C4: C2 is the most uncertain, as expected next to the boundary.
 
-% \begin{figure}[h]
-%     \centering
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig4_distance_vs_time.png}\caption{Ball--proxy distance per condition}\end{subfigure}\hfill
-%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig6_beta_posteriors.png}\caption{Posterior of $P$(intercept)}\end{subfigure}
-%     \caption{(a) Ball--proxy distance per condition, with $\Rc$ and the three stroke windows. (b) Posterior distributions of $P$(intercept) per condition.}\label{fig:beta}
-% \end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig4_distance_vs_time.png}\caption{Ball--proxy distance per condition}\end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{Fig6_beta_posteriors.png}\caption{Posterior of $P$(intercept)}\end{subfigure}
+    \caption{(a) Ball--proxy distance per condition, with $\Rc$ and the three stroke windows. (b) Posterior distributions of $P$(intercept) per condition.}\label{fig:beta}
+\end{figure}
 
 \paragraph{Problem 4 -- How much do two extra strokes teach us? (KL as information gain)} With a uniform prior, the predictive probability of an intercept after $s$ of $n$ strokes is $(s+1)/(n+2)$. After the reference stroke only it is $q=(s_1+1)/3$; after all three it is $p=(s+1)/5$. The information gained is the KL divergence of the Bernoulli distributions:
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Information gained by two extra strokes.}\label{tab:p4}
     \footnotesize
@@ -170,7 +170,7 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
 
 \paragraph{Problem 5 -- Ideal observer and Bayes (\tagill{}, to be replaced by real judgments)} Let $F$ = ``ball feasible'' (C1, C2; prior 0.5) and $J$ = ``observer says possible''. Assume hit rate $P(J\given F)=0.85$ and false-alarm rate $P(J\given\neg F)=0.20$ (\textbf{assumed values, not data}).
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Joint probabilities for Problem 5 \tagill.}\label{tab:p5}
     \footnotesize
@@ -194,5 +194,3 @@ Each problem uses a $2\times2$ table of two events and applies $P(B\given A)=P(A
     \item \textbf{Bits quantify what each event tells us:} knowing near/far removes 0.46 bits of the 0.92 bits of uncertainty about interception; a perfect observer could transmit at most $H(F)=1$ bit per judgment.
     \item \textbf{Limits:} $n=3$ strokes; frames are autocorrelated; entropies depend on the bin width (\SI{1}{\meter\per\second}) and are biased low for 31 frames; KL uses a 0.5 pseudo-count; Problem~5 uses assumed rates; the criterion is evaluated on \SI{60}{\hertz} samples ($\approx\SI{0.13}{\meter}$ per frame at peak speed), although interpolation changes no verdict.
 \end{itemize}
-
-\paragraph{Reproducibility and AI disclosure.} ; all values were computed from the supplied Xsens CSV and can be reproduced by running \texttt{info\_theory\_topspin.m}.
