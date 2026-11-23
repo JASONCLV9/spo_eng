@@ -70,9 +70,18 @@ Scripts read the CSV files from *motion-data/* automatically.
 | 3 or S | Smash |
 
 ## Units
-- Length: meters. Angles: degrees. Time: seconds. Sampling rate: 60 Hz.
-- Xsens axes: X forward, Y left, Z up. Vizard axes: X right, Y up, Z forward.
-- Ball offsets (conditions): 0.00, 0.08, 0.15, 0.30 m. Contact threshold: 0.095 m (paddle radius 0.075 m + ball radius 0.020 m).
+- Length: meters. 
+- Angles: degrees. 
+- Time: seconds. 
+
+## Frames
+- Xsens axes: X forward, Y left, Z up. 
+- Vizard axes: X right, Y up, Z forward.
+
+## Conditions
+- Sampling rate: 60 Hz.
+- Ball offsets (conditions): 0.00, 0.08, 0.15, 0.30 m. 
+- Contact threshold: 0.095 m (paddle radius 0.075 m + ball radius 0.020 m).
 
 ## Launch instructions
 1. Install Vizard 8.3.1 and unzip the package *src* keeping the folder structure above.
