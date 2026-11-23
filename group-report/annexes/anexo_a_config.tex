@@ -1,23 +1,23 @@
 \section{Vizard configuration and controls}\label{app:config}
 
 \begin{table}[h]
-\centering
-\caption{Keyboard controls of the Vizard entry script (software: Vizard 8.3.1; desktop mode).}\label{tab:controls}
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}l Y l Y@{}}
-\toprule
-\textbf{Key} & \textbf{Function} & \textbf{Key} & \textbf{Function}\\
-\midrule
-\texttt{SPACE} & Play / pause & \texttt{C} & Next camera (4 views)\\
-\texttt{R} & Restart & \texttt{G} & Jump to validation times (V1--V3)\\
-\texttt{S} & Toggle $1.0\times$ / $0.25\times$ (labeled in red on HUD) & \texttt{P} & Print current state to console\\
-\texttt{1}--\texttt{4} & Select condition C1--C4 & \texttt{T / A / K} & Toggle trail / avatar / skeleton\\
-\texttt{V} & Show / hide criterion (hidden at start) & \texttt{N / M / U / I} & Adjust table position/orientation live\\
-$\leftarrow/\rightarrow$ & Frame step & \texttt{H} & Help overlay\\
-\bottomrule
-\end{tabularx}
+    \centering
+    \caption{Keyboard controls of the Vizard entry script (software: Vizard 8.3.1; desktop mode).}\label{tab:controls}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{@{}l Y l Y@{}}
+        \toprule
+        \textbf{Key}             & \textbf{Function}                                         & \textbf{Key}           & \textbf{Function}                      \\
+        \midrule
+        \texttt{SPACE}           & Play / pause                                              & \texttt{C}             & Next camera (4 views)                  \\
+        \texttt{R}               & Restart                                                   & \texttt{G}             & Jump to validation times (V1--V3)      \\
+        \texttt{S}               & Toggle $1.0\times$ / $0.25\times$ (labeled in red on HUD) & \texttt{P}             & Print current state to console         \\
+        \texttt{1}--\texttt{4}   & Select condition C1--C4                                   & \texttt{T / A / K}     & Toggle trail / avatar / skeleton       \\
+        \texttt{V}               & Show / hide criterion (hidden at start)                   & \texttt{N / M / U / I} & Adjust table position/orientation live \\
+        $\leftarrow/\rightarrow$ & Frame step                                                & \texttt{H}             & Help overlay                           \\
+        \bottomrule
+    \end{tabularx}
 \end{table}
 
 \paragraph{Fixed scene parameters.} Timing: $1.0\times$ real time at \SI{60}{\hertz} (frame $=\lfloor 60\,t\rfloor$, no interpolation). Table: ITTF, $2.74\times\SI{1.525}{\meter}$, top \SI{0.76}{\meter}, net \SI{0.1525}{\meter}, placed \SI{0.40}{\meter} from the initial pelvis. Scale reference: \SI{1}{\meter} floor ruler, \SI{10}{\centi\meter} segments. Skeleton: 4~px lines, \SI{2.5}{\centi\meter} joint spheres. Avatar: \texttt{vcc\_male}, offset \SI{1.5}{\meter} in $+X$. Criterion: Eq.~\eqref{eq:criterion} with $\Rpad=\SI{0.075}{\meter}$, $\Rball=\SI{0.020}{\meter}$.
 
-\paragraph{Reproduction.} See the \texttt{README} in the group ZIP for exact launch instructions, dependencies and relative paths. \todo{confirm README file name and entry script name}
+\paragraph{Reproduction.} See the \texttt{README.md} in the group ZIP for exact launch instructions, dependencies and relative paths.

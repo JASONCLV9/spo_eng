@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex group-report"] 1795418065.00586 "group-report.aux" "group-report.bbl" "group-report" 1795418072.29512 0
+["bibtex group-report"] 1795419839.98373 "group-report.aux" "group-report.bbl" "group-report" 1795419862.73898 0
   "./bib/refs.bib" 1795413858 2815 e7ba8b6d2edd316f55b6c6c30472f7d9 ""
   "C:/Users/luisk/AppData/Roaming/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "group-report.aux" 1795418071 14136 e74c9f2185c20fd1c49a1e7814e1f019 "pdflatex"
+  "group-report.aux" 1795419861 14151 90a4f765ea8ee003248e75e7b5346d32 "pdflatex"
   (generated)
   "group-report.bbl"
   "group-report.blg"
   (rewritten before read)
-["pdflatex"] 1795418065.3538 "c:/Users/luisk/Desktop/E2 Examen Final/group-report/group-report.tex" "group-report.pdf" "group-report" 1795418072.29682 0
+["pdflatex"] 1795419855.51801 "c:/Users/luisk/Desktop/E2 Examen Final/group-report/group-report.tex" "group-report.pdf" "group-report" 1795419862.73983 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -188,15 +188,15 @@
   "C:/Users/luisk/AppData/Roaming/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/luisk/AppData/Roaming/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-english.trsl" 1644048522 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "C:/Users/luisk/AppData/Roaming/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
-  "annexes/anexo_a_config.tex" 1795413858 1709 49e829da2aaa75d1f03cf88eeaebc04f ""
-  "annexes/anexo_b_teoria_informacion.tex" 1795413948 17095 aea554fca577f6579d93cec2e9f59670 ""
-  "back/reconocimientos.tex" 1795413858 292 03cf69353258cb370ab2378219dd484e ""
-  "c:/Users/luisk/Desktop/E2 Examen Final/group-report/group-report.tex" 1795413890 648 f1fdf41511ed3b2acffe1ecbab9cb84e ""
+  "annexes/anexo_a_config.tex" 1795418651 2210 9c26f91250609b6fb3401ad44ee267b4 ""
+  "annexes/anexo_b_teoria_informacion.tex" 1795418947 17034 2a46482ddcd5cec5fb4b12c2586441e4 ""
+  "back/reconocimientos.tex" 1795419189 709 c060707b687dc9b85ead8046e29249c2 ""
+  "c:/Users/luisk/Desktop/E2 Examen Final/group-report/group-report.tex" 1795418766 658 d8275deb875888e3496f60426862f571 ""
   "chapters/01_introduccion_procedencia.tex" 1795414743 1936 54641b5bc52d3a712e078644b5f5c24d ""
   "chapters/02_conversion_vizard.tex" 1795415115 1355 94d60dd1986aa7bad8e548ecc1492a1b ""
   "chapters/03_validacion_tres_fotogramas.tex" 1795416151 2736 f0e03a2fff67aee24e4da20428c308bf ""
-  "chapters/04_investigacion_affordancia.tex" 1795417195 5615 9ff546162a74f8eb797caf05ec774d96 ""
-  "chapters/05_discusion_ecologica.tex" 1795418064 8501 113f0b61cf618cd5ae31744cf8769b9c ""
+  "chapters/04_investigacion_affordancia.tex" 1795419855 8806 f4acc3757a288ae1f3e4cef4ee65123f ""
+  "chapters/05_discusion_ecologica.tex" 1795419832 8476 36a88897cde7856b269951715b079639 ""
   "chapters/06_limitaciones_conclusiones.tex" 1795417550 1855 d7bbbe1644b11a2e767fb7922d109eb7 ""
   "config/macros.tex" 1795414586 1388 a41d359592a1b2cc250ccbb37e3bb99f ""
   "config/packages.tex" 1795413858 1628 b4e7f5ae861897e5df72682b05156b20 ""
@@ -215,13 +215,12 @@
   "figures/vizard_t3600.png" 1795415443 1824270 0b89cab290702b13c86163dab5f48894 ""
   "front/portada.tex" 1795414293 400 8c2d419fc149fa073f75a62092e711c7 ""
   "front/resumen.tex" 1795414528 1048 ad0897c49bc4ba3339f2fee48cc7ca15 ""
-  "group-report.aux" 1795418071 14136 e74c9f2185c20fd1c49a1e7814e1f019 "pdflatex"
-  "group-report.bbl" 1795418065 2697 7a40b78dd151d2dcdd155aab4e8c36d3 "bibtex group-report"
-  "group-report.out" 1795418071 5430 bfd9cd6300e271e2640095b1815ec296 "pdflatex"
-  "group-report.tex" 1795413890 648 f1fdf41511ed3b2acffe1ecbab9cb84e ""
+  "group-report.aux" 1795419861 14151 90a4f765ea8ee003248e75e7b5346d32 "pdflatex"
+  "group-report.bbl" 1795419840 2697 7a40b78dd151d2dcdd155aab4e8c36d3 "bibtex group-report"
+  "group-report.out" 1795419861 5595 0e42ba362d228ffa75986e2840cdd7ed "pdflatex"
+  "group-report.tex" 1795418766 658 d8275deb875888e3496f60426862f571 ""
   "tables/tabla_comparacion_opensim_vizard.tex" 1795415167 1576 f0680cbbddded8935024b1867de0f544 ""
   "tables/tabla_condiciones_affordancia.tex" 1795417409 1537 f128440c176b71a4dba54ce594e3d221 ""
-  "tables/tabla_contribuciones.tex" 1795413858 670 3ac53b13119aa1184bc9309dfcfe0a41 ""
   "tables/tabla_viewpoint.tex" 1795418033 2761 ed8d9553609da7b648016d7c170c5f82 ""
   (generated)
   "group-report.aux"

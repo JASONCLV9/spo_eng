@@ -1,17 +1,19 @@
 \section{Affordance investigation}\label{sec:affordance}
 
-\subsection{Action possibility and actor}
+\subsection{Actor-relative action possibility and relevant information}
 
-\textbf{Question.} \emph{For this actor's recorded stroke, does the moving racket intercept a ball placed at offset $d$ from the peak-speed impact point?} The affordance is a relation between the actor's effectivities (arm length, racket size, swing path and speed) and an environmental property (ball position), neither located in the ball's coordinates nor in the arm alone~\cite{gibson1979}. Because only one reference stroke is used, the threshold is \textbf{not} the player's maximum capacity: in live play footwork, trunk rotation, shoulder extension or timing could extend reach.
+Following ecological psychology~\cite{gibson1979}, the affordance is defined as an actor-relative action possibility arising from the coupling between the performer's effectivities (segment lengths, racket dimensions, stroke trajectory, and velocity profile) and a relevant environmental property (spatial ball placement), residing neither in the ball's world coordinates alone nor solely in the limb kinematics. Because the analysis is constrained to a single recorded stroke rather than an adaptive movement repertoire, the resulting threshold does not represent the player's maximal physiological reach; in live play, footwork, trunk rotation, shoulder extension, or temporal adjustments could expand the reachable workspace.
 
-\subsection{Effector surrogate, criterion and boundary prediction}
+Within this actor--environment system, the relevant information specifying the action possibility consists of the time-varying optical and kinematic relations between the moving effector and the stationary target—specifically, the closing spatial gap, trajectory alignment along the outward axis, and approach velocity profile.
 
-No sensor was mounted on the racket, so the effector is a \textbf{labeled surrogate}: a sphere centred \SI{0.10}{\meter} beyond the left wrist along the forearm axis, $\Rpad=\SI{0.075}{\meter}$ (\SI{15}{\centi\meter} blade). Ball radius $\Rball=\SI{0.020}{\meter}$ (ITTF). The reference point $\Pref$ is the proxy position at peak speed (f185); the manipulated parameter is the outward offset $d$ along the unit vector $\uout$ (horizontal direction from pelvis to proxy at $\tref$), $\Pball(d)=\Pref+d\,\uout$. The criterion was fixed before any judgment was considered:
+\subsection{Effector surrogate, criterion, and boundary prediction}
+
+A sphere centred \SI{0.10}{\meter} distal to the left wrist along the forearm longitudinal axis, with radius $\Rpad=\SI{0.075}{\meter}$ (corresponding to a \SI{15}{\centi\meter} blade). The simulated ball has a standard ITTF radius of $\Rball=\SI{0.020}{\meter}$. The reference position $\Pref$ corresponds to the surrogate centre at peak hand speed (frame~185), and the manipulated environmental parameter is the outward offset $d$ along the horizontal unit vector $\uout$ directed from the pelvis to $\Pref$ at $\tref$, such that $\Pball(d)=\Pref+d\,\uout$. The geometric interception criterion was established \emph{a priori}, independently of any perceptual judgments:
 \begin{equation}
     \dmin=\min_i\,\bigl\lVert \mathbf{p}_{\mathrm{proxy}}(i)-\Pball\bigr\rVert \;\le\; \Rc=\Rpad+\Rball=\SI{0.095}{\meter}.
     \label{eq:criterion}
 \end{equation}
-Movement, $1.0\times$ playback, default camera and all unrelated scene features are fixed across conditions. The predicted boundary lies between C2 and C3.
+Kinematics, $1.0\times$ playback speed and the default camera viewpoint remain invariant across conditions. Under this criterion, the predicted action boundary lies between conditions C2 and C3.
 
 \input{tables/tabla_condiciones_affordancia.tex}
 
@@ -24,13 +26,13 @@ Movement, $1.0\times$ playback, default camera and all unrelated scene features 
     \caption{Vizard screenshots for conditions C1--C4.}\label{fig:conditions}
 \end{figure*}
 
-\paragraph{Critical reading.} The design crosses the boundary (C2$\to$C3), so the investigation can discriminate. The result is, however, a statement about the model: C2 clears $\Rc$ by only \SI{1.5}{\centi\meter}, which is smaller than the \SI{2.7}{\centi\meter} hand-height discrepancy at V2, so C2's ``intercept'' is the least robust verdict. C3 (\SI{5.5}{\centi\meter} beyond) and C4 are robust. Adding offsets at 0.095 and \SI{0.11}{\meter} would localize the boundary more tightly. Annex~\ref{app:info} shows that stroke-to-stroke variability (RMS spread $\approx$ \SI{6.8}{\centi\meter}) is of the same size as the boundary, so the affordance is better described as a probability than as a sharp yes/no.
+\paragraph{Critical evaluation.} Because the experimental conditions span the transition from C2 to C3, the design successfully discriminates between interceptable and non-interceptable states. Nevertheless, this boundary remains a property of the kinematic model: C2 satisfies $\Rc$ by a margin of only \SI{1.5}{\centi\meter}, which is smaller than the \SI{2.7}{\centi\meter} hand-height discrepancy observed at V2, rendering the positive classification of C2 comparatively sensitive to reconstruction error. By contrast, C3 (\SI{5.5}{\centi\meter} beyond $\Rc$) and C4 yield robust non-interception verdicts. Sampling intermediate offsets at $0.095$ and \SI{0.11}{\meter} would localise the transition boundary with greater precision. Furthermore, as shown in Annex~\ref{app:info}, natural stroke-to-stroke kinematic variability (RMS spread $\approx \SI{6.8}{\centi\meter}$) is comparable in magnitude to $\Rc$ itself, indicating that the real-world affordance is more accurately characterised as a probabilistic gradient than as a deterministic step function.
 
-\section{Evidence labeling and proposed judgment protocol}\label{sec:protocol}
+\section{Evidence labelling, conceptual distinctions, and proposed judgment protocol}\label{sec:protocol}
 
-\paragraph{Provenance.} \tagobs: recorded Xsens kinematics and OpenSim outputs (Table~\ref{tab:validation}). \tagsim: ball placement, clearance distances, collision checks and timing offsets (Table~\ref{tab:conditions}). \tagprop: the observer protocol below; \textbf{no participant judgments have been collected or reported}.
+\paragraph{Evidence provenance.} To maintain strict epistemic transparency, all claims are tagged by evidence source: \tagobs denotes empirical kinematics recorded via Xsens MVN and reconstructed in OpenSim (Table~\ref{tab:validation}); \tagsim denotes deterministic desktop-simulation outputs, including ball placement, minimum clearance distances, collision checks, and timing offsets (Table~\ref{tab:conditions}); and \tagprop denotes the planned observer judgment protocol detailed below, for which \textbf{no participant data have been collected or reported}.
 
-\paragraph{Affordance, judgment and outcome are three different things:}
+\paragraph{Distinction between affordance, judgment, and outcome.} Rigorous ecological analysis requires separating the objective action possibility from both its perceptual estimation and its dynamical execution (Table~\ref{tab:levels}). Conflating these three levels obscures whether an error stems from perceptual miscalibration, kinematic model mismatch, or post-contact ball mechanics.
 
 \begin{table}[h]
     \centering
@@ -38,20 +40,22 @@ Movement, $1.0\times$ playback, default camera and all unrelated scene features 
     \footnotesize
     \begin{tabularx}{\textwidth}{@{}l Y l@{}}
         \toprule
-        \textbf{Level}                   & \textbf{Definition in this study}                                                   & \textbf{Evidence status}             \\
+        \textbf{Level}                   & \textbf{Definition}                                                                 & \textbf{Evidence status}             \\
         \midrule
         Affordance (real possibility)    & Geometric interception of the ball by this recorded sweep, Eq.~\eqref{eq:criterion} & \tagsim{} Table~\ref{tab:conditions} \\
-        Judgment (perceived possibility) & Observer's yes/no and 1--5 confidence, given before the criterion is shown          & \tagprop{} protocol below            \\
-        Outcome (performance)            & A successful topspin return over the net                                            & Not tested                           \\
+        Judgment (perceived possibility) & Observer's binary response and 1--5 confidence rating prior to criterion reveal     & \tagprop{} protocol below            \\
+        Outcome (performance)            & Successful topspin return clearing the net onto the opponent's court                & Not tested                           \\
         \bottomrule
     \end{tabularx}
 \end{table}
 
-\paragraph{Protocol.}
+\paragraph{Informational covariation and limits of visual versus haptic evidence.} Across experimental conditions, manipulating the outward offset $d$ produces a lawful covariation between spatial displacement and the underlying geometric affordance ($\Rc - \dmin$). In an ideal perceptual task, observer judgments should covary systematically with this geometric relation. However, because observers rely exclusively on projected optical variables (apparent effector--ball separation, motion parallax, and interposition), the covariation between visual information and the invariant affordance is mediated by camera viewpoint: foreshortening or occlusion along specific viewing axes can degrade informational specificity and bias judgments even though the physical affordance remains unchanged. Moreover, the desktop Vizard simulation provides purely visual, third-person kinematic evidence without haptic or proprioceptive feedback (such as impact impulse, racket vibration, or inertial resistance upon ball contact). While visual kinematics suffice to specify geometric interception ($\dmin \le \Rc$), the absence of haptic collision cues precludes sensorimotor recalibration across trials and offers no physical evidence regarding contact dynamics—such as momentum transfer, rubber friction, and topspin generation—that govern actual task outcomes.
+
+\paragraph{Proposed judgment protocol.}
 \begin{enumerate}
-    \item Observers (consenting group members/peers) view each condition at $1.0\times$ with the criterion hidden (default; \texttt{V} toggles it) and view each condition from all four cameras (\texttt{C}). The HUD condition label shows $d$ and should be masked in judgment mode.
-    \item Each presents a binary ``can the player intercept the ball with this stroke?'' judgment and a confidence rating (1--5) \emph{before} the criterion is revealed.
-    \item Offsets are randomized with repetitions; for a judgment curve we propose adding intermediate levels (e.g.\ $d=0.00$, $0.05$, $0.08$, $0.095$, $0.11$, $0.15$, $0.20$, $0.30$ m).
-    \item A logistic psychometric curve is fitted to the proportion of ``possible'' responses: the 50\,\% point $d_{50}$ is the \textbf{perceived action boundary}, its slope indexes perceptual sensitivity, and $d_{50}-\SI{0.095}{\meter}$ quantifies calibration bias (over- or underestimation).
-    \item Camera is a within-observer factor (Section~\ref{sec:judgment-curves}); the skeleton/avatar choice is fixed across trials.
+    \item Consenting observers (peers/group members) view each condition at $1.0\times$ playback speed with the visual criterion overlay disabled by default (toggled via \texttt{V}) across all four camera viewpoints (\texttt{C}). The HUD condition label displaying $d$ is masked during judgment trials to prevent cognitive cueing.
+    \item Prior to revealing the geometric criterion, each observer provides a forced-choice binary judgment (\emph{``Can the player intercept the ball with this stroke?''}) accompanied by a confidence rating on a 1--5 scale.
+    \item Offset levels are randomised across repeated trials; to resolve the psychometric transition curve, intermediate offsets are proposed (e.g., $d=0.00$, $0.05$, $0.08$, $0.095$, $0.11$, $0.15$, $0.20$, and \SI{0.30}{\meter}).
+    \item A logistic psychometric function is fitted to the proportion of ``possible'' responses: the 50\,\% threshold $d_{50}$ defines the \textbf{perceived action boundary}, the slope indexes perceptual sensitivity, and the signed difference $d_{50}-\SI{0.095}{\meter}$ quantifies calibration bias (over- or underestimation).
+    \item Camera viewpoint is manipulated as a within-observer factor (Section~\ref{sec:judgment-curves}), while the avatar/skeleton representation remains fixed across all trials.
 \end{enumerate}
