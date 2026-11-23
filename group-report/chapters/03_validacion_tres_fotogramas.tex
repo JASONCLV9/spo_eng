@@ -1,11 +1,6 @@
 \section{Three-frame validation: OpenSim versus Vizard}\label{sec:validation}
 
-Elbow flexion in Vizard is computed from segment positions,
-\begin{equation}
-    \theta = 180^\circ - \arccos\!\left[\frac{\mathbf{v}_{se}\cdot\mathbf{v}_{we}}{\lVert\mathbf{v}_{se}\rVert\,\lVert\mathbf{v}_{we}\rVert}\right],
-    \label{eq:elbow}
-\end{equation}
-with $\mathbf{v}_{se}$ (shoulder$\to$elbow) and $\mathbf{v}_{we}$ (wrist$\to$elbow); hand height is the vertical coordinate of the left hand segment. Frames: \textbf{V1} end of backswing (f150), \textbf{V2} peak racket-proxy speed, \SI{7.84}{\meter\per\second} (f185), \textbf{V3} follow-through (f216).
+Elbow angle agrees within $5.12^\circ$ across all three instants; the largest discrepancy occurs near full extension, where a small absolute error yields a substantial relative error ($33\,\%$). This difference is likely attributable to OpenSim modelling the elbow as a 1-DoF hinge, whereas Vizard derives the angle from three IMU-tracked segments that incorporate carrying-angle and soft-tissue artifacts. Hand height remains within \SI{4}{\centi\meter} at V1 and V2, but reaches \SI{10.4}{\centi\meter} at V3, which is not negligible. Potential causes for this discrepancy include: (i)~scapular and clavicular constraints in OpenSim as opposed to unrestricted shoulder-girdle motion in the IMU data; (ii)~differences in segment proportions between the Rajagopal (2015) musculoskeletal model used in OpenSim and the standard male avatar model employed in Vizard; and (iii)~a one-frame (\SI{16.7}{\milli\second}) temporal offset during rapid upward motion.
 
 \input{tables/tabla_comparacion_opensim_vizard.tex}
 
@@ -24,4 +19,3 @@ with $\mathbf{v}_{se}$ (shoulder$\to$elbow) and $\mathbf{v}_{we}$ (wrist$\to$elb
     \caption{Continuous OpenSim time series over the full trial (\SI{60}{\hertz}), with the three validation instants marked.}\label{fig:timeseries}
 \end{figure}
 
-Elbow angle agrees within $5.12^\circ$ across all three instants; the largest discrepancy occurs near full extension, where a small absolute error yields a substantial relative error ($33\,\%$). This difference is likely attributable to OpenSim modelling the elbow as a 1-DoF hinge, whereas Vizard derives the angle from three IMU-tracked segments that incorporate carrying-angle and soft-tissue artifacts. Hand height remains within \SI{4}{\centi\meter} at V1 and V2, but reaches \SI{10.4}{\centi\meter} at V3, which is not negligible. Potential causes for this discrepancy include: (i)~scapular and clavicular constraints in OpenSim as opposed to unrestricted shoulder-girdle motion in the IMU data; (ii)~differences in segment proportions between the Rajagopal (2015) musculoskeletal model used in OpenSim and the standard male avatar model employed in Vizard; and (iii)~a one-frame (\SI{16.7}{\milli\second}) temporal offset during rapid upward motion.

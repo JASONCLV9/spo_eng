@@ -1,17 +1,16 @@
-
 \begin{table}[t]
     \centering
     \caption{Expected effect of viewpoint on information about the same affordance.}\label{tab:viewpoints}
     \footnotesize
     \setlength{\tabcolsep}{3pt}
-    \begin{tabular}{@{}R{1.1cm} R{2.9cm} R{2.4cm} R{5.2cm} R{4.2cm}@{}}
+    \begin{tabular}{@{}R{1.4cm} R{2.9cm} R{2.4cm} R{5.2cm} R{4.2cm}@{}}
         \toprule
-        \textbf{View} & \textbf{Visible gap of $d$}                                                & \textbf{Lost along line of sight}                                             & \textbf{What occludes what}                                                                                                                                                               & \textbf{Flow / heading information}                                                                         \\
+        \textbf{View} & \textbf{Visible gap of $d$}                                   & \textbf{Lost along line of sight}                                 & \textbf{What occludes what}                                                                    & \textbf{Flow / heading information}                                                 \\
         \midrule
-        Side          & $\approx d\,\lvert\cos\alpha\rvert$ (full if the offset is mostly forward) & Lateral part, $d\sin\alpha$                                                   & Least self-occlusion: racket arm is nearest the camera, torso on the far side; the translucent blade ($\alpha_{\mathrm{blend}}=0.35$) can overlay the ball                                & Lateral translation, weak expansion; good angular gap-closure rate; best view of stroke arc and blade pitch \\
-        Front         & $\approx d\,\lvert\sin\alpha\rvert$                                        & Forward part, $d\cos\alpha$                                                   & Backswing blade hidden behind torso/hips; net (\SI{0.9}{\meter}) and table lie below the sightline (camera $\ge\SI{1.0}{\meter}$ above pelvis; hand $\approx\SI{1.18}{\meter}$ at impact) & Strongest looming of the approaching blade; focus of expansion specifies heading                            \\
-        Top-down      & $d$ (full horizontal offset)                                               & Vertical part of the 3-D miss distance (hand vs.\ ball height); net clearance & Head and shoulders may cover the lower arm; table lines give plan-view references                                                                                                         & Plan-view gap closure; no depth-from-expansion; least ecologically valid                                    \\
-        Behind        & $\approx d\,\lvert\sin\alpha\rvert$                                        & Forward part, $d\cos\alpha$                                                   & Greatest self-occlusion: torso, shoulder and head can hide the arm, blade and ball near the boundary                                                                                      & Contracting flow (blade recedes); clear view of table and net layout                                        \\
+        Side          & Forward projection of $d$ (governed by offset angle $\alpha$) & Lateral component (varies with $\alpha$)                          & Minimal self-occlusion (racket arm nearest camera); translucent blade can overlay ball         & Lateral translation, weak expansion; clear stroke arc, blade pitch, and gap closure \\
+        Front         & Lateral projection of $d$ (governed by $\alpha$)              & Forward depth component (varies with $\alpha$)                    & Torso and hips hide backswing; elevated sightline keeps net and table below the target         & Strong blade looming; focus of expansion specifies heading                          \\
+        Top-down      & Full horizontal offset $d$ (invariant to $\alpha$)            & Vertical miss component (hand vs.\ ball height) and net clearance & Head and shoulders may cover lower arm; table lines provide plan-view references               & Plan-view gap closure; lacks depth-from-expansion (lowest ecological validity)      \\
+        Behind        & Lateral projection of $d$ (governed by $\alpha$)              & Forward depth component (varies with $\alpha$)                    & Greatest self-occlusion: torso, shoulder, and head can hide arm, blade, and ball near boundary & Contracting flow (receding blade); clear view of table and net layout               \\
         \bottomrule
     \end{tabular}
 \end{table}
