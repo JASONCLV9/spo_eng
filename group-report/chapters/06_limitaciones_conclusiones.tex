@@ -1,20 +1,20 @@
-\section{Limitaciones, Conclusiones y Contribución}
+\section{Limitations, Conclusions, and Contributions}
 \label{sec:conclusiones}
 
-\subsection{Limitaciones del Modelo y Supuestos del Estudio}
-Para interpretar correctamente el alcance de los resultados, se declaran los siguientes supuestos y limitaciones:
+\subsection{Model Assumptions and Study Limitations}
+To appropriately bound our experimental conclusions, we declare the following limitations:
 \begin{enumerate}[leftmargin=*]
-  \item \textbf{Supuesto de viabilidad de trayectoria fija (\emph{recorded-path feasibility}):} Los datos cinemáticos analizados corresponden a un único intento motor grabado de topspin. La no intercepción en las condiciones $C_3$ y $C_4$ demuestra únicamente que \emph{esa trayectoria particular} no alcanza la pelota; no debe inferirse que el atleta sea biológicamente incapaz de alcanzarla, ya que en una situación ecológica real el jugador ajustaría en línea la zancada, la rotación del tronco y la extensión del hombro.
-  \item \textbf{Aproximación geométrica del proxy de paleta:} Al no disponer de un sensor inercial dedicado rígidamente fijado a la pala, el implemento se modeló como un desplazamiento axial de $0.10\text{ m}$ desde la muñeca en la dirección del antebrazo con un radio esférico de $0.075\text{ m}$. Esto no captura las pronaciones o supinaciones de muñeca que alteran el ángulo efectivo de la hoja en el impacto real.
-  \item \textbf{Pelota simulada estática:} La pelota se posicionó estática en el espacio, obviando la dinámica parabólica, la resistencia aerodinámica y el bote sobre la mesa característicos de un peloteo competitivo.
+    \item \textbf{Recorded-path feasibility assumption:} Analyzed data represent a single executed topspin attempt. Failure to intercept in conditions $C_3$ and $C_4$ indicates only that \emph{this specific recorded trajectory} cannot reach the ball; it must not be interpreted as the actor's maximal reaching boundary, as real players adaptively modulate footwork, torso rotation, and shoulder extension online.
+    \item \textbf{Racket proxy approximation:} Due to the absence of a dedicated sensor rigidly mounted on the racket, the implement was modeled as a $0.10\text{ m}$ longitudinal offset along the forearm axis with a $0.075\text{ m}$ spherical radius. This omits subtle wrist supination/pronation dynamics that adjust blade pitch in actual table tennis.
+    \item \textbf{Static simulated ball:} The ball remains stationary in 3D space, omitting the complex parabolic trajectory, aerodynamic drag, and table rebound dynamics characteristic of live competitive play.
 \end{enumerate}
 
-\subsection{Conclusiones}
-Se logró reproducir con fidelidad cinemática verificable un golpe topspin de tenis de mesa en \Vizard{} a partir de datos inerciales de \Xsens{} y cinemática inversa de \OpenSim{}, con discrepancias angulares en flexión de codo inferiores a $5.12^{\circ}$ y diferencias métricas de altura de mano inferiores a $0.11\text{ m}$ en los tres fotogramas clave analizados.
+\subsection{Conclusions}
+We successfully reproduced an experimental table tennis topspin stroke in \Vizard{} driven by \Xsens{} data and validated against \OpenSim{}, achieving angular agreement in elbow flexion within $5.12^{\circ}$ and vertical hand height agreement within $0.11\text{ m}$ across three key timestamps.
 
-La investigación experimental de affordancia demostró de forma concluyente el cruce de la frontera de factibilidad predicha ($R_c = 0.095\text{ m}$), evidenciando contacto efectivo en $C_1$ ($d=0.00\text{ m}$) y $C_2$ ($d=0.08\text{ m}$), y ausencia de contacto en $C_3$ ($d=0.15\text{ m}$) y $C_4$ ($d=0.30\text{ m}$). El estudio valida empíricamente la separación entre affordancia (propiedad del sistema actor-entorno), juicio perceptual (estimación del observador) y éxito deportivo (control balístico multidimensional), subrayando además que el entorno virtual provee invariantes ópticas pero carece de flujo háptico dinámico.
+The affordance investigation conclusively demonstrated the crossing of the predicted feasibility boundary ($R_c = 0.095\text{ m}$), confirming geometric interception for $C_1$ ($d=0.00\text{ m}$) and $C_2$ ($d=0.08\text{ m}$), and failure for $C_3$ ($d=0.15\text{ m}$) and $C_4$ ($d=0.30\text{ m}$). The study empirically reinforces the separation between affordance (actor--environment property), perceptual judgment (observer report), and athletic outcome (ball return control), while clarifying that virtual desktop environments convey optical invariants but lack dynamic haptic flow.
 
-\subsection{Tabla de Contribuciones del Grupo}
-En cumplimiento con la rúbrica de evaluación, la Tabla~\ref{tab:contribuciones} detalla la distribución de responsabilidades y aportes técnicos de cada integrante del equipo.
+\subsection{Group Contribution Table}
+Table~\ref{tab:contribuciones} details the specific contributions and responsibilities of each group member.
 
 \input{tables/tabla_contribuciones.tex}

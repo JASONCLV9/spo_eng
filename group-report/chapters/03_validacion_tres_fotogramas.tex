@@ -1,24 +1,24 @@
-\section{Validación en Tres Fotogramas: OpenSim frente a Vizard}
+\section{Three-Frame Validation: OpenSim versus Vizard}
 \label{sec:validacion}
 
-Para demostrar la fidelidad biomecánica del movimiento en \Vizard{} frente al modelo musculoesquelético de referencia en \OpenSim{}, se seleccionaron tres instantes temporales representativos del golpe \emph{topspin}:
+To demonstrate the fidelity of the virtual environment against the reference OpenSim musculoskeletal simulation, three key representative timestamps were selected across the stroke:
 \begin{enumerate}[leftmargin=*]
-  \item \textbf{V1 ($t = 2.500\text{ s}$, Fotograma 150):} Fase de preparación y final del \emph{backswing}, caracterizada por una flexión moderada del codo y posicionamiento bajo del implemento.
-  \item \textbf{V2 ($t = 3.083\text{ s}$, Fotograma 185):} Instante de máxima velocidad lineal del swing ($v_{\text{proxy}} = 9.85\text{ m/s}$), coincidente con el punto nominal de impacto con la pelota.
-  \item \textbf{V3 ($t = 3.600\text{ s}$, Fotograma 216):} Fase de terminación y desaceleración (\emph{follow-through}), donde el brazo cruza el torso hacia arriba y adelante.
+  \item \textbf{V1 ($t = 2.500\text{ s}$, Frame 150):} Preparation phase and completion of backswing, characterized by moderate elbow flexion and a lowered racket position.
+  \item \textbf{V2 ($t = 3.083\text{ s}$, Frame 185):} Instant of maximum linear racket proxy speed ($v_{\text{proxy}} = 9.85\text{ m/s}$), corresponding to nominal ball impact.
+  \item \textbf{V3 ($t = 3.600\text{ s}$, Frame 216):} Follow-through and deceleration phase, where the striking limb moves upward and across the chest.
 \end{enumerate}
 
-\subsection{Comparación Numérica de Variables Cinemáticas}
-Se evaluaron dos variables cinemáticas independientes:
+\subsection{Numerical Comparison of Kinematic Variables}
+Two independent kinematic metrics were verified:
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Flexión del codo izquierdo ($\theta_{\text{codo}}$):} En \Vizard{} se computa como el ángulo suplementario entre los vectores del brazo y antebrazo:
+  \item \textbf{Left elbow flexion ($\theta_{\text{elbow}}$):} In \Vizard{}, computed from upper arm, forearm, and hand segment positions:
   \begin{equation}
-    \theta_{\text{codo}} = 180^{\circ} - \arccos\left(\frac{\mathbf{v}_{\text{hombro}\to\text{codo}} \cdot \mathbf{v}_{\text{muñeca}\to\text{codo}}}{\|\mathbf{v}_{\text{hombro}\to\text{codo}}\| \|\mathbf{v}_{\text{muñeca}\to\text{codo}}\|}\right).
+    \theta_{\text{elbow}} = 180^{\circ} - \arccos\left(\frac{\mathbf{v}_{\text{shoulder}\to\text{elbow}} \cdot \mathbf{v}_{\text{wrist}\to\text{elbow}}}{\|\mathbf{v}_{\text{shoulder}\to\text{elbow}}\| \|\mathbf{v}_{\text{wrist}\to\text{elbow}}\|}\right).
   \end{equation}
-  \item \textbf{Altura vertical de la mano izquierda ($Y_{\text{mano}}$):} Coordenada cartesiana vertical del segmento de la muñeca izquierda respecto al piso (en metros).
+  \item \textbf{Left hand vertical height ($Y_{\text{hand}}$):} Cartesian vertical coordinate of the left wrist segment relative to the floor (in meters).
 \end{itemize}
 
-Los resultados numéricos emparejados, las discrepancias absolutas y los errores relativos se detallan en la Tabla~\ref{tab:comparacion_opensim_vizard}.
+Paired numerical results, absolute discrepancies, and percentage differences are detailed in Table~\ref{tab:comparacion_opensim_vizard}.
 
 \input{tables/tabla_comparacion_opensim_vizard.tex}
 
@@ -26,23 +26,23 @@ Los resultados numéricos emparejados, las discrepancias absolutas y los errores
   \centering
   \begin{subfigure}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t2500.png}
-    \caption{V1: Preparación ($t = 2.500\text{ s}$)}
+    \caption{V1: Preparation ($t = 2.500\text{ s}$)}
     \label{fig:vizard_v1}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t3083.png}
-    \caption{V2: Impacto / Pico ($t = 3.083\text{ s}$)}
+    \caption{V2: Impact / Peak speed ($t = 3.083\text{ s}$)}
     \label{fig:vizard_v2}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t3600.png}
-    \caption{V3: Terminación ($t = 3.600\text{ s}$)}
+    \caption{V3: Follow-through ($t = 3.600\text{ s}$)}
     \label{fig:vizard_v3}
   \end{subfigure}
   \vspace{-0.25cm}
-  \caption{Capturas de pantalla en Vizard en los tres instantes de validación sincronizados, mostrando el esqueleto de segmentos, el avatar retargeteado, la mesa y el HUD cuantitativo activo.}
+  \caption{Synchronized Vizard screenshots at the three validation timestamps, displaying segment skeleton, retargeted avatar, tournament table, and real-time quantitative HUD.}
   \label{fig:vizard_tres_frames}
 \end{figure*}
 
@@ -50,25 +50,25 @@ Los resultados numéricos emparejados, las discrepancias absolutas y los errores
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
     \includegraphics[width=\textwidth,height=3.3cm,keepaspectratio]{comp_elbow_flex.png}
-    \caption{Curva continua de flexión de codo izquierdo (grados)}
+    \caption{Continuous left elbow flexion trajectory (degrees)}
     \label{fig:comp_elbow}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \includegraphics[width=\textwidth,height=3.3cm,keepaspectratio]{comp_hand_height.png}
-    \caption{Curva continua de altura vertical de la mano (metros)}
+    \caption{Continuous left hand vertical height trajectory (meters)}
     \label{fig:comp_height}
   \end{subfigure}
   \vspace{-0.25cm}
-  \caption{Comparación temporal continua entre OpenSim (modelo \texttt{Rajagopal2015.osim}) y los datos exportados para Vizard a lo largo de todo el ensayo ($60\text{ Hz}$). Se aprecia una coincidencia morfológica y temporal casi idéntica en las fases de aceleración, impacto y frenado.}
+  \caption{Continuous time-series comparison between OpenSim (\texttt{Rajagopal2015.osim}) and Vizard across the entire recorded stroke ($60\text{ Hz}$). Both acceleration, impact, and deceleration profiles demonstrate near-identical morphological and temporal tracking.}
   \label{fig:curvas_comparacion}
 \end{figure*}
 
-\subsection{Análisis Crítico de las Discrepancias}
-Como se evidencia en la Tabla~\ref{tab:comparacion_opensim_vizard} y en las curvas continuas de la Figura~\ref{fig:curvas_comparacion}, la concordancia temporal y morfológica es altamente satisfactoria:
+\subsection{Analytical Discussion of Discrepancies}
+As demonstrated in Table~\ref{tab:comparacion_opensim_vizard} and Figure~\ref{fig:curvas_comparacion}, kinematic concordance is robust:
 \begin{enumerate}[leftmargin=*]
-  \item \textbf{Flexión de codo:} Las diferencias absolutas oscilan entre $-0.38^{\circ}$ y $+5.12^{\circ}$. La discrepancia de $5.12^{\circ}$ en $t = 3.083\text{ s}$ ocurre en el valle de máxima extensión del codo ($15.48^{\circ}$ en OpenSim vs. $20.60^{\circ}$ en Vizard). Esta diferencia se debe a que el modelo musculoesquelético \texttt{Rajagopal2015.osim} parametriza el codo como una articulación de revolución ideal (1 grado de libertad con eje anatómicamente restringido), mientras que en Vizard el ángulo se calcula a partir de los vectores posicionales de tres segmentos inerciales (\texttt{Upper Arm}, \texttt{Forearm}, \texttt{Hand}) obtenidos de la fusión de sensores de Xsens, los cuales capturan sutiles rotaciones axiales combinadas y micro-desplazamientos de tejidos blandos (\emph{soft-tissue artifact}).
-  \item \textbf{Altura de la mano:} Las diferencias de altura se mantienen por debajo de $4.3\text{ cm}$ en las fases de preparación e impacto ($\Delta = -0.043\text{ m}$ y $+0.029\text{ m}$, respectivamente), elevándose a $10.9\text{ cm}$ en el ápice de la terminación ($t = 3.600\text{ s}$). Esto responde a que el escalamiento biomecánico de OpenSim impone longitudes de eslabón esquelético constantes y cinemática articular cerrada en hombro y clavícula, mientras que la integración cinemática directa de Xsens en Vizard refleja la traslación inercial global con ligera acumulación de deriva vertical en gestos de alta aceleración angular.
+  \item \textbf{Elbow Flexion:} Absolute discrepancies range between $-0.38^{\circ}$ and $+5.12^{\circ}$. The $5.12^{\circ}$ discrepancy at $t = 3.083\text{ s}$ occurs at peak arm extension ($15.48^{\circ}$ in OpenSim vs. $20.60^{\circ}$ in Vizard). This arises because \texttt{Rajagopal2015.osim} models the humeroulnar joint as an idealized 1-DoF revolute hinge with constrained joint axes, whereas Vizard computes the 3D angle from three independent IMU-tracked bone segments, which include minor carrying angle variations and soft-tissue motion artifacts.
+  \item \textbf{Hand Height:} Vertical deviations remain below $4.3\text{ cm}$ during preparation and impact ($\Delta = -0.043\text{ m}$ and $+0.029\text{ m}$), with an elevation difference of $10.9\text{ cm}$ at the apex of follow-through ($t = 3.600\text{ s}$). OpenSim enforces rigid kinematic chain linkage constraints across clavicle and scapula, whereas direct inertial sensor integration in Vizard captures global pelvis vertical translation and shoulder girdle shrugging during violent deceleration.
 \end{enumerate}
 
-Ambas verificaciones confirman que el movimiento en Vizard preserva con rigor la temporización real y la cinemática funcional del gesto deportivo sin distorsiones perceptuales.
+These checks confirm that Vizard preserves authentic movement timing and spatial trajectory fidelity without introducing perceptual artifacts.

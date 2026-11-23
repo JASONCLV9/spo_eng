@@ -1,27 +1,27 @@
-\section{Interpretación y Discusión Ecológica (Gibson)}
+\section{Ecological Interpretation and Discussion (Gibson)}
 \label{sec:discusion}
 
-\subsection{Relaciones Ópticas y Estructura del Flujo Visual}
-De acuerdo con Gibson \cite{gibson1979ecological}, la información para guiar la acción no reside en sensaciones fragmentadas reconstruidas cognitivamente, sino en patrones invariantes del conjunto óptico ambiental (\emph{ambient optic array}). En nuestra escena de \Vizard{}, varias relaciones ópticas especifican la posibilidad de intercepción:
+\subsection{Optical Invariants and Visual Flow Structure}
+According to Gibson \cite{gibson1979ecological}, perceptual guidance of action does not rely on static retinal snapshots reconstructed by inferential cognition, but rather on higher-order invariants within the ambient optic array. In our Vizard simulation, specific optical relations specify interception feasibility:
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Tasa de expansión óptica (\emph{optical looming}):} La tasa de cambio del ángulo subtendido visualmente por la pelota y la paleta especifica directamente el tiempo restante para el contacto ($\tau(t) = \theta / \dot{\theta}$), permitiendo al observador anticipar la coincidencia temporal sin estimar distancias absolutas \cite{fajen2005affordance}.
-  \item \textbf{Paralaje de movimiento y oclusión óptica:} El desplazamiento relativo del implemento frente a las líneas reglamentarias de la mesa y la red entrega información geométrica inequívoca sobre la profundidad relativa y el margen de error lateral en cada condición.
+    \item \textbf{Optical looming and visual tau ($\tau$):} The rate of optical expansion of the ball and racket specifies the time remaining until contact ($\tau(t) = \theta / \dot{\theta}$), allowing observers to perceive temporal feasibility directly without cognitive distance-speed computation \cite{fajen2005affordance}.
+    \item \textbf{Motion parallax and optical gap closure:} The relative displacement between the racket and the visual boundaries of the table surface and net provides unambiguous geometric depth information and optical gap closure rates.
 \end{itemize}
 
-\subsection{Affordances Relativas al Actor y Perspectiva del Observador}
-Un concepto fundamental en la teoría ecológica es que las affordances son \textbf{relativas al actor}: las dimensiones de la mesa y la separación de la pelota solo cobran significado en relación con la longitud de la extremidad del jugador, su postura segmentaria y la velocidad que puede impartir al implemento. 
+\subsection{Actor-Relative Affordances and Observer Perspectives}
+In ecological psychology, affordances are intrinsically \textbf{actor-relative}: table dimensions and ball distances gain functional behavioral meaning only when scaled to the player's limb geometry, postural reach, and acceleration capacity.
 
-Asimismo, la posibilidad de conmutar entre cuatro vistas de cámara en \Vizard{} (lateral, frontal, cenital y posterior desde la espalda del jugador) ilustra que \textbf{una perspectiva específica del observador no crea un entorno privado}:
+Furthermore, switching between the four camera views in Vizard (front-side, frontal, overhead, and posterior) demonstrates that \textbf{an observer's vantage point does not create a private environment}:
 \begin{quote}
-\textit{«El hecho de que cada punto de observación ofrezca un conjunto óptico particular no significa que existan múltiples realidades. La estructura invariante subyacente del evento físico (la trayectoria de la paleta y la posición fija de la pelota) permanece idéntica e inmutable para cualquier observador»} \cite{gibson1979ecological}.
+    \textit{``The fact that different observation points yield different perspectives does not imply multiple subjective realities. The underlying invariant physical structure of the event (the stroke trajectory and ball location) remains identical for any observer''} \cite{gibson1979ecological}.
 \end{quote}
-El cambio de punto de vista visual simplemente transforma el flujo perspectivo, pero la affordancia de intercepción objetiva se mantiene invariable.
+Altering camera viewpoint transforms perspective flow, but the objective affordance of interception remains invariant.
 
-\subsection{Covariación Tacto-Postura y Límites Hápticos de la Simulación}
-Gibson \cite{gibson1966senses} demostró que el sistema háptico opera como un sistema perceptual activo: la percepción háptica dinámica no depende de receptores aislados de presión en la piel, sino de la \textbf{covariación intrínseca entre la postura articular y las fuerzas de contacto} (\emph{touch--posture covariation}) \cite{kim2026haptic}. Cuando un jugador de tenis de mesa empuña una paleta y ejecuta un golpe, los momentos de inercia del implemento (\emph{inertia tensor}) y las deformaciones viscoelásticas de los tejidos musculares proporcionan información inmediata sobre la orientación de la hoja y la posibilidad de golpeo.
+\subsection{Touch--Posture Covariation and Haptic Limits}
+Gibson \cite{gibson1966senses} established that the haptic system acts as an active perceptual system: dynamic touch does not depend on passive cutaneous pressure receptors, but on the \textbf{lawful covariation between joint posture and contact forces} (\emph{touch--posture covariation}) \cite{kim2026haptic}. When a table tennis player wields a racket, the inertia tensor of the blade and viscoelastic tissue deformations specify blade orientation and stroke capability before visual contact occurs.
 
-En este punto es crucial formular una \textbf{declaración explícita sobre los límites de nuestra implementación}:
+Here we state an \textbf{explicit declaration regarding the physical limits of our simulation}:
 \begin{quote}
-\textbf{Nuestra escena en Vizard entrega exclusivamente información visual y óptica cinemática; no proporciona ninguna interacción háptica real.}
+    \textbf{Our Vizard desktop environment provides visual and kinematic optical information only; it provides no actual haptic interaction.}
 \end{quote}
-La animación tridimensional de un avatar y el cálculo computacional de la distancia en el HUD no constituyen captación háptica activa. El observador percibe únicamente el correlato óptico de la acción, careciendo del flujo háptico continuo (fuerza de reacción, resistencia inercial del aire y retroalimentación de impacto) que caracteriza la ejecución motora natural en el deporte real \cite{kim2026haptic}.
+A graphical 3D animation and a numerical HUD distance readout do not constitute haptic pickup. Observers perceive optical correlates of motion, but lack dynamic haptic feedback (impact reaction forces, paddle air resistance, and muscular torque flow) that naturally regulates athletic motor performance \cite{kim2026haptic}.

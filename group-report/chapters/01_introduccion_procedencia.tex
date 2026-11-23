@@ -1,16 +1,16 @@
-\section{Procedencia y Adquisición del Movimiento}
+\section{Motion Provenance and Data Acquisition}
 \label{sec:procedencia}
 
-El presente estudio investiga la viabilidad cinemática y la percepción ecológica de una posibilidad de acción (\emph{affordance}) en el tenis de mesa. Para ello, se emplea el registro biomecánico experimental de un gesto deportivo de ataque: el golpe \emph{topspin} (drive con efecto liftado) ejecutado con la extremidad superior izquierda.
+This study investigates the kinematic feasibility and ecological perception of an action possibility (\emph{affordance}) in table tennis. We examine an experimental motion recording of an offensive attacking stroke: the \emph{topspin} drive executed with the left upper extremity.
 
-\subsection{Fuente Experimental y Datos Xsens MVN}
-El movimiento original fue adquirido mediante el sistema de captura inercial de cuerpo completo \Xsens{} (23 segmentos corporales, 17 sensores MTw Awinda) a una frecuencia de muestreo de $60.0\text{ Hz}$ ($16.67\text{ ms}$ entre fotogramas) en unidades métricas estandarizadas (metros para posición lineal y cuaterniones unitarios para orientación espacial). El ensayo analizado comprende un intervalo continuo de $6.300\text{ segundos}$ ($379\text{ fotogramas}$, numerados del $0$ al $378$), abarcando la fase de preparación estática inicial, el balanceo hacia atrás (\emph{backswing}), la aceleración explosiva, el impacto en máxima velocidad y la fase de desaceleración y seguimiento (\emph{follow-through}).
+\subsection{Experimental Source and Xsens MVN Data}
+The raw kinematic movement was acquired using the \Xsens{} full-body inertial motion capture suit (23 anatomical segments, 17 MTw Awinda IMUs) at a sampling frequency of $60.0\text{ Hz}$ ($16.67\text{ ms}$ inter-frame interval) in standardized SI units (meters for linear translations, normalized unit quaternions for spatial orientations). The analyzed trial comprises a continuous duration of $6.300\text{ seconds}$ ($379\text{ frames}$, indexed from $0$ to $378$), encompassing the initial quiet stance, the preparatory backswing, the explosive forward acceleration phase, the ball contact instant at peak velocity, and the deceleration follow-through.
 
-Los datos cinemáticos fuente provienen de los archivos tabulares estructurados:
+The primary tabular data files consist of:
 \begin{itemize}[leftmargin=*]
-  \item \texttt{Top\_spin\_SegmentOrientation.csv}: Contiene los cuaterniones normalizados $(q_0, q_1, q_2, q_3)$ para cada uno de los 23 segmentos anatómicos en cada instante de tiempo.
-  \item \texttt{Top\_spin\_SegmentPosition.csv}: Registra las coordenadas tridimensionales $(x, y, z)$ del origen de cada segmento en el sistema de referencia inercial global de Xsens.
+  \item \texttt{Top\_spin\_SegmentOrientation.csv}: Records normalized unit quaternions $(q_0, q_1, q_2, q_3)$ for each of the 23 anatomical segments across every time frame.
+  \item \texttt{Top\_spin\_SegmentPosition.csv}: Records the 3D Cartesian coordinates $(x, y, z)$ of the origin of each segment within the global inertial frame of Xsens.
 \end{itemize}
 
-\subsection{Modelo Musculoesquelético en OpenSim}
-Previamente al desarrollo en \Vizard{}, la cinemática inversa del gesto fue resuelta en \OpenSim{} \cite{delp2007opensim} utilizando el modelo musculoesquelético de cuerpo completo \texttt{Rajagopal2015.osim} \cite{rajagopal2016fullbody}, debidamente escalado antropométricamente a las dimensiones del atleta. De este procesamiento se obtuvieron las trayectorias articulares generalizadas (\texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}), así como las variables de referencia exportadas en los archivos \texttt{elbow\_flex\_l.sto} (ángulo de flexión del codo izquierdo) y \texttt{left\_hand\_height.sto} (coordenada de posición vertical $Y$ del centro de la mano izquierda). Estas trayectorias constituyen el patrón biomecánico fundamental para la validación numérica de fidelidad en la escena virtual.
+\subsection{Musculoskeletal Model in OpenSim}
+Prior to Vizard implementation, the inverse kinematics of the captured trial was resolved in \OpenSim{} \cite{delp2007opensim} using the full-body musculoskeletal model \texttt{Rajagopal2015.osim} \cite{rajagopal2016fullbody}, scaled anthropometrically to match the participant's body dimensions. Generalized coordinate trajectories were exported in \texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}. Specifically, the reference trajectory for left elbow flexion was extracted to \texttt{elbow\_flex\_l.sto}, while the vertical $Y$-coordinate position of the left hand center was extracted to \texttt{left\_hand\_height.sto}. These kinematic time series serve as the objective ground truth against which Vizard visual fidelity is quantitatively assessed.
