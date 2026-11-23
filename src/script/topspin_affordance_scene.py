@@ -57,7 +57,7 @@ CONTACT_THRESHOLD = PADDLE_RADIUS + BALL_RADIUS
 
 # Ordered conditions: ball distance d (m) outward
 # from the point of maximum proxy speed
-CONDITIONS = [-0.08, 0.00, 0.08, 0.15]
+CONDITIONS = [0.00, 0.08, 0.15, 0.30]
 
 # Instants for OpenSim vs Vizard validation (s): preparation, impact, end
 VALIDATION_TIMES = [2.500, 3.083, 3.600]
