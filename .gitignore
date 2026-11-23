@@ -1,0 +1,14 @@
+group-report.aux
+group-report.bbl
+group-report.blg
+group-report.fdb_latexmk
+group-report.fls
+group-report.log
+group-report.synctex.gz
+group-report.synctex(busy)
+group-report.lof
+group-report.lot
+group-report.toc
+
+# Python
+__pycache__/
