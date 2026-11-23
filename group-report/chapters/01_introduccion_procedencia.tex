@@ -1,16 +1,20 @@
-\section{Motion Provenance and Data Acquisition}
-\label{sec:procedencia}
+\section{Motion provenance}\label{sec:prov}
 
-This study investigates the kinematic feasibility and ecological perception of an action possibility (\emph{affordance}) in table tennis. We examine an experimental motion recording of an offensive attacking stroke: the \emph{topspin} drive executed with the left upper extremity.
+The movement analysed is the one captured, processed in OpenSim~\cite{delp2007,rajagopal2016} and analysed earlier in the course: a left-handed table tennis topspin. Table~\ref{tab:provenance} documents the source, trial, interval, sampling rate, units, axis conventions and origin used in the Vizard~\cite{vizard2024} project.
 
-\subsection{Experimental Source and Xsens MVN Data}
-The raw kinematic movement was acquired using the \Xsens{} full-body inertial motion capture suit (23 anatomical segments, 17 MTw Awinda IMUs) at a sampling frequency of $60.0\text{ Hz}$ ($16.67\text{ ms}$ inter-frame interval) in standardized SI units (meters for linear translations, normalized unit quaternions for spatial orientations). The analyzed trial comprises a continuous duration of $6.300\text{ seconds}$ ($379\text{ frames}$, indexed from $0$ to $378$), encompassing the initial quiet stance, the preparatory backswing, the explosive forward acceleration phase, the ball contact instant at peak velocity, and the deceleration follow-through.
-
-The primary tabular data files consist of:
-\begin{itemize}[leftmargin=*]
-  \item \texttt{Top\_spin\_SegmentOrientation.csv}: Records normalized unit quaternions $(q_0, q_1, q_2, q_3)$ for each of the 23 anatomical segments across every time frame.
-  \item \texttt{Top\_spin\_SegmentPosition.csv}: Records the 3D Cartesian coordinates $(x, y, z)$ of the origin of each segment within the global inertial frame of Xsens.
-\end{itemize}
-
-\subsection{Musculoskeletal Model in OpenSim}
-Prior to Vizard implementation, the inverse kinematics of the captured trial was resolved in \OpenSim{} \cite{delp2007opensim} using the full-body musculoskeletal model \texttt{Rajagopal2015.osim} \cite{rajagopal2016fullbody}, scaled anthropometrically to match the participant's body dimensions. Generalized coordinate trajectories were exported in \texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}. Specifically, the reference trajectory for left elbow flexion was extracted to \texttt{elbow\_flex\_l.sto}, while the vertical $Y$-coordinate position of the left hand center was extracted to \texttt{left\_hand\_height.sto}. These kinematic time series serve as the objective ground truth against which Vizard visual fidelity is quantitatively assessed.
+\begin{table}[t]
+\centering
+\caption{Provenance of the recorded motion.}\label{tab:provenance}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}l Y@{}}
+\toprule
+\textbf{Item} & \textbf{Value}\\
+\midrule
+Source / trial & Xsens MVN suit, 17 MTw Awinda IMUs, 23 segments. Trial \texttt{Top\_spin}: \texttt{Top\_spin\_SegmentPosition.csv} and \texttt{Top\_spin\_SegmentOrientation.csv}\\
+Interval, rate, units & Full trial used: frames 0--378 ($\approx 0$--\SI{6.3}{\second}) at \SI{60}{\hertz} (\SI{16.67}{\milli\second}). Positions in m; orientations as unit quaternions $(w,x,y,z)$\\
+OpenSim reference & \texttt{Rajagopal2015.osim}, scaled to the participant; IK output \texttt{Top\_spin-001\_Xsens\_jointangle\_q.mot}; extracted series \texttt{elbow\_flex\_l.sto} and \texttt{left\_hand\_height.sto} (OpenSim $Y$ up)\\
+Axes & Xsens: $X$ forward, $Y$ left, $Z$ up. Vizard: $X$ right, $Y$ up, $Z$ forward\\
+Origin & Pelvis at $t=0$ shifted to $(0,\,y_{\mathrm{pelvis},0},\,0)$: horizontal offset removed, true floor height preserved\\
+\bottomrule
+\end{tabularx}
+\end{table}

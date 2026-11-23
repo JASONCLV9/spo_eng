@@ -1,94 +1,57 @@
-\section{Affordance Investigation: Design, Criterion, and Results}
-\label{sec:affordancia}
+\section{Affordance investigation}\label{sec:affordance}
 
-\subsection{Action Possibility Definition}
-Under Gibson's ecological framework \cite{gibson1979ecological}, an affordance is an objective property of the coupled actor--environment system, specified in actor-intrinsic units rather than abstract extrinsic metrics.
+\subsection{Action possibility, actor, and what is \emph{not} claimed}
 
-We formulate the \textbf{recorded-path feasibility} question:
-\begin{quote}
-    \textit{``Given the actor's fixed, recorded stroke trajectory, does the physical sweep of the racket geometrically intercept a simulated table tennis ball placed at an outward offset distance $d$ from the location of peak proxy speed?''}
-\end{quote}
+\textbf{Question (recorded-path feasibility).} \emph{For this actor's recorded stroke, does the swept racket volume intercept a ball placed at offset $d$ from the peak-speed impact point?} The affordance is a relation between the actor's effectivities (arm length, racket size, swing path and speed) and an environmental property (ball position), neither located in the ball's coordinates nor in the arm alone~\cite{gibson1979,warren1984}. Because only one reference stroke is used, the threshold is \textbf{not} the player's maximum capacity: in live play footwork, trunk rotation, shoulder extension or timing could extend reach. Geometric interception is also \textbf{not} a successful return, which additionally needs timing, racket pitch/yaw, rubber friction, restitution and Magnus effects.
 
-It is crucial to emphasize the \textbf{distinction between geometric interception and a successful return}:
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Geometric Interception:} Tests solely spatial volumetric collision between paddle proxy and ball. It is a necessary but not sufficient condition for successful gameplay.
-    \item \textbf{Successful Return:} Requires, beyond contact, correct racket face pitch/yaw orientation, microsecond timing precision, sufficient tangential acceleration to produce topspin, and clearance over the net onto the opposing table half.
-\end{itemize}
+\subsection{Effector surrogate, criterion and boundary prediction}
 
-Furthermore, we maintain an explicit distinction between the \textbf{affordance} (the physical existence of an action possibility) and the \textbf{judgment} (the perceptual estimate rendered by an observer before viewing the criterion outcome).
-
-\subsection{Manipulated Environmental Parameter and Ordered Conditions}
-The racket proxy is attached to the left wrist (\texttt{Left Hand}), extended $0.10\text{ m}$ outward along the forearm longitudinal axis, with an effective spherical collision radius $R_{\text{paddle}} = 0.075\text{ m}$ (representing a standard $15\text{ cm}$ diameter blade). The simulated ball has official ITTF radius $R_{\text{ball}} = 0.020\text{ m}$ ($40\text{ mm}$ diameter).
-
-The reference impact position $\mathbf{P}_{\text{ref}}$ corresponds to the proxy position at peak velocity ($i_{\text{ref}} = 185$, $t = 3.083\text{ s}$). The manipulated parameter is the outward horizontal offset distance $d$ (in meters), along the unit vector $\mathbf{u}_{\text{out}}$ perpendicular to the player's pelvis:
+No sensor was mounted on the racket, so the effector is a \textbf{labeled surrogate}: a sphere centred \SI{0.10}{\meter} beyond the left wrist along the forearm axis, $\Rpad=\SI{0.075}{\meter}$ (\SI{15}{\centi\meter} blade). Ball radius $\Rball=\SI{0.020}{\meter}$ (ITTF). The reference point $\Pref$ is the proxy position at peak speed (f185); the manipulated parameter is the outward offset $d$ along the unit vector $\uout$ (horizontal direction from pelvis to proxy at $\tref$), $\Pball(d)=\Pref+d\,\uout$. The criterion was fixed before any judgment was considered:
 \begin{equation}
-    \mathbf{P}_{\text{ball}}(d) = \mathbf{P}_{\text{ref}} + d \cdot \mathbf{u}_{\text{out}}.
+    \dmin=\min_i\,\bigl\lVert \mathbf{p}_{\mathrm{proxy}}(i)-\Pball\bigr\rVert \;\le\; \Rc=\Rpad+\Rball=\SI{0.095}{\meter}.
+    \label{eq:criterion}
 \end{equation}
-
-Four ordered conditions were established:
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Condition 1 ($C_1$, $d = 0.00\text{ m}$):} Ball at optimal nominal impact point.
-    \item \textbf{Condition 2 ($C_2$, $d = 0.08\text{ m}$):} Ball offset $8\text{ cm}$ outward.
-    \item \textbf{Condition 3 ($C_3$, $d = 0.15\text{ m}$):} Ball offset $15\text{ cm}$ outward.
-    \item \textbf{Condition 4 ($C_4$, $d = 0.30\text{ m}$):} Ball offset $30\text{ cm}$ outward (completely outside stroke reach).
-\end{itemize}
-
-\subsection{Independent Geometric Criterion and Boundary Prediction}
-The independent geometric criterion determines that contact occurs if and only if the minimum Euclidean distance $d_{\text{min}}$ between paddle proxy center and ball center across all 379 frames satisfies:
-\begin{equation}
-    d_{\text{min}} = \min_{i \in [0, N-1]} \|\mathbf{p}_{\text{proxy}}(i) - \mathbf{P}_{\text{ball}}\| \le R_{\text{paddle}} + R_{\text{ball}} = 0.095\text{ m}.
-\end{equation}
-
-The predicted boundary is $R_c = 0.095\text{ m}$. Conditions $C_1$ ($0.00\text{ m}$) and $C_2$ ($0.08\text{ m}$) lie on the feasible side ($d < R_c$), while $C_3$ ($0.15\text{ m}$) and $C_4$ ($0.30\text{ m}$) lie on the infeasible side ($d > R_c$). Thus, the design deliberately spans opposite sides of the predicted feasibility boundary between $C_2$ and $C_3$.
-
-\subsection{Experimental Results in Vizard}
-Computational evaluation yielded the results summarized in Table~\ref{tab:condiciones_affordancia}.
+Movement, $1.0\times$ playback, default camera and all unrelated scene features are fixed across conditions. The predicted boundary lies between C2 and C3.
 
 \input{tables/tabla_condiciones_affordancia.tex}
 
-\begin{figure*}[t]
+% \begin{figure*}[t]
+% \centering
+% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C1.png}\caption{C1, $d=0.00$ m (intercept)}\end{subfigure}\hfill
+% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C2.png}\caption{C2, $d=0.08$ m (intercept)}\end{subfigure}\hfill
+% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C3.png}\caption{C3, $d=0.15$ m (no contact)}\end{subfigure}\hfill
+% \begin{subfigure}{0.24\textwidth}\includegraphics[width=\linewidth]{C4.png}\caption{C4, $d=0.30$ m (no contact)}\end{subfigure}
+% \caption{Vizard screenshots for C1--C4 at the timestamps in Table~\ref{tab:conditions}, showing ball, racket-sweep trail, and HUD distance.}\label{fig:conditions}
+% \end{figure*}
+
+\paragraph{Critical reading.} The design crosses the boundary (C2$\to$C3), so the investigation can discriminate. The result is, however, a statement about the model: C2 clears $\Rc$ by only \SI{1.5}{\centi\meter}, which is smaller than the \SI{2.7}{\centi\meter} hand-height discrepancy at V2, so C2's ``intercept'' is the least robust verdict. C3 (\SI{5.5}{\centi\meter} beyond) and C4 are robust. Adding offsets at 0.095 and \SI{0.11}{\meter} would localize the boundary more tightly. Annex~\ref{app:info} shows that stroke-to-stroke variability (RMS spread $\approx$ \SI{6.8}{\centi\meter}) is of the same size as the boundary, so the affordance is better described as a probability than as a sharp yes/no.
+
+\section{Evidence labeling and proposed judgment protocol}\label{sec:protocol}
+
+\paragraph{Provenance.} \tagobs: recorded Xsens kinematics and OpenSim outputs (Table~\ref{tab:validation}). \tagsim: ball placement, clearance distances, collision checks and timing offsets (Table~\ref{tab:conditions}). \tagprop: the observer protocol below; \textbf{no participant judgments have been collected or reported}.
+
+\paragraph{Affordance, judgment and outcome are three different things:}
+
+\begin{table}[h]
     \centering
-    \begin{subfigure}[b]{0.24\textwidth}
-        \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c1.png}
-        \caption{$C_1$: $d = 0.00\text{ m}$ (INTERCEPT)}
-        \label{fig:cond_c1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.24\textwidth}
-        \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c2.png}
-        \caption{$C_2$: $d = 0.08\text{ m}$ (INTERCEPT)}
-        \label{fig:cond_c2}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.24\textwidth}
-        \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c3.png}
-        \caption{$C_3$: $d = 0.15\text{ m}$ (NO INTERCEPT)}
-        \label{fig:cond_c3}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.24\textwidth}
-        \includegraphics[width=\textwidth,height=2.3cm,keepaspectratio]{c4.png}
-        \caption{$C_4$: $d = 0.30\text{ m}$ (NO INTERCEPT)}
-        \label{fig:cond_c4}
-    \end{subfigure}
-    \vspace{-0.25cm}
-    \caption{Vizard screenshots across the four experimental conditions, showing ball spatial location, racket sweep trajectory, and real-time HUD metrics.}
-    \label{fig:vizard_condiciones}
-\end{figure*}
+    \caption{Levels of analysis and evidence status.}\label{tab:levels}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{@{}l Y l@{}}
+        \toprule
+        \textbf{Level}                   & \textbf{Definition in this study}                                                   & \textbf{Evidence status}             \\
+        \midrule
+        Affordance (real possibility)    & Geometric interception of the ball by this recorded sweep, Eq.~\eqref{eq:criterion} & \tagsim{} Table~\ref{tab:conditions} \\
+        Judgment (perceived possibility) & Observer's yes/no and 1--5 confidence, given before the criterion is shown          & \tagprop{} protocol below            \\
+        Outcome (performance)            & A successful topspin return over the net                                            & Not tested                           \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
 
-As shown in Figure~\ref{fig:vizard_condiciones}:
-\begin{itemize}[leftmargin=*]
-    \item In $C_1$, the racket cleanly intercepts the ball center ($d_{\text{min}} = 0.000\text{ m} \le 0.095\text{ m}$) at $t = 3.083\text{ s}$.
-    \item In $C_2$, the outer perimeter of the racket makes contact with a $1.5\text{ cm}$ margin ($d_{\text{min}} = 0.080\text{ m} \le 0.095\text{ m}$).
-    \item In $C_3$, the racket misses the ball by $5.5\text{ cm}$ ($d_{\text{min}} = 0.150\text{ m} > 0.095\text{ m}$), failing geometric interception.
-    \item In $C_4$, the ball is completely unreachable ($d_{\text{min}} = 0.296\text{ m}$).
-\end{itemize}
-
-\subsection{Proposed Judgment Protocol}
-To separate affordance from judgment without biasing participants:
-\begin{enumerate}[leftmargin=*]
-    \item Observers inspect the trial in real-time ($1.0\times$) or slow-motion ($0.25\times$) with the criterion hidden on the HUD (\texttt{Criterion: hidden (press V)}).
-    \item Observers freely inspect the 3D scene from multiple vantage points using camera toggle (\texttt{C}).
-    \item Prior to criterion revelation, observers record a binary categorical judgment (\textit{Can the player intercept the ball with this stroke? Yes / No}) along with a confidence rating (1--5).
-    \item Observers press \texttt{V} to unmask the objective mathematical veredicto, enabling calculation of perceptual sensitivity ($d'$), hit rates, and false alarm rates.
+\paragraph{Protocol.}
+\begin{enumerate}
+    \item Observers (consenting group members/peers) view each condition at $1.0\times$ with the criterion hidden (default; \texttt{V} toggles it) and view each condition from all four cameras (\texttt{C}). The HUD condition label shows $d$ and should be masked in judgment mode.
+    \item Each presents a binary ``can the player intercept the ball with this stroke?'' judgment and a confidence rating (1--5) \emph{before} the criterion is revealed.
+    \item Offsets are randomized with repetitions; for a judgment curve we propose adding intermediate levels (e.g.\ $d=0.00$, $0.05$, $0.08$, $0.095$, $0.11$, $0.15$, $0.20$, $0.30$ m).
+    \item A logistic psychometric curve is fitted to the proportion of ``possible'' responses: the 50\,\% point $d_{50}$ is the \textbf{perceived action boundary}, its slope indexes perceptual sensitivity, and $d_{50}-\SI{0.095}{\meter}$ quantifies calibration bias (over- or underestimation).
+    \item Camera is a within-observer factor (Section~\ref{sec:judgment-curves}); the skeleton/avatar choice is fixed across trials.
 \end{enumerate}

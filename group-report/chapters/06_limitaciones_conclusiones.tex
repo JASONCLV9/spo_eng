@@ -1,20 +1,11 @@
-\section{Limitations, Conclusions, and Contributions}
-\label{sec:conclusiones}
+\section{Limitations and conclusions}\label{sec:limits}
 
-\subsection{Model Assumptions and Study Limitations}
-To appropriately bound our experimental conclusions, we declare the following limitations:
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Recorded-path feasibility assumption:} Analyzed data represent a single executed topspin attempt. Failure to intercept in conditions $C_3$ and $C_4$ indicates only that \emph{this specific recorded trajectory} cannot reach the ball; it must not be interpreted as the actor's maximal reaching boundary, as real players adaptively modulate footwork, torso rotation, and shoulder extension online.
-    \item \textbf{Racket proxy approximation:} Due to the absence of a dedicated sensor rigidly mounted on the racket, the implement was modeled as a $0.10\text{ m}$ longitudinal offset along the forearm axis with a $0.075\text{ m}$ spherical radius. This omits subtle wrist supination/pronation dynamics that adjust blade pitch in actual table tennis.
-    \item \textbf{Static simulated ball:} The ball remains stationary in 3D space, omitting the complex parabolic trajectory, aerodynamic drag, and table rebound dynamics characteristic of live competitive play.
-\end{enumerate}
+\begin{itemize}
+\item \textbf{Single reference stroke:} non-intersection of C3/C4 says only that this path misses; it is not the actor's maximum reach. The other two strokes in the trial (Annex~\ref{app:info}) show about \SI{7}{\centi\meter} of stroke-to-stroke variability.
+\item \textbf{Racket surrogate and static ball:} no racket sensor, no wrist pronation/supination, no ball flight, spin or rebound; timing error is zero by construction at $\tref$.
+\item \textbf{Fidelity limits:} $5.12^\circ$ elbow and up to \SI{10.4}{\centi\meter} hand-height differences (V3) show that Vizard and OpenSim agree well but not perfectly; near-boundary verdicts (C2) should be read with that uncertainty.
+\item \textbf{Camera and occlusion:} occlusion is under-represented (see-through skeleton, avatar beside it), the four cameras are discrete and monocular, and occlusion fractions are proposed, not measured.
+\item \textbf{No observed judgments:} perceptual claims are proposals; replace Section~\ref{sec:protocol} with observed data if collected (with informed consent).
+\end{itemize}
 
-\subsection{Conclusions}
-We successfully reproduced an experimental table tennis topspin stroke in \Vizard{} driven by \Xsens{} data and validated against \OpenSim{}, achieving angular agreement in elbow flexion within $5.12^{\circ}$ and vertical hand height agreement within $0.11\text{ m}$ across three key timestamps.
-
-The affordance investigation conclusively demonstrated the crossing of the predicted feasibility boundary ($R_c = 0.095\text{ m}$), confirming geometric interception for $C_1$ ($d=0.00\text{ m}$) and $C_2$ ($d=0.08\text{ m}$), and failure for $C_3$ ($d=0.15\text{ m}$) and $C_4$ ($d=0.30\text{ m}$). The study empirically reinforces the separation between affordance (actor--environment property), perceptual judgment (observer report), and athletic outcome (ball return control), while clarifying that virtual desktop environments convey optical invariants but lack dynamic haptic flow.
-
-\subsection{Group Contribution Table}
-Table~\ref{tab:contribuciones} details the specific contributions and responsibilities of each group member.
-
-\input{tables/tabla_contribuciones.tex}
+\paragraph{Conclusion.} The Vizard scene reproduces the recorded stroke with timing preserved and angular agreement within $5.12^\circ$ at three instants. Under the stated surrogate and criterion, the recorded sweep geometrically intercepts offsets of 0.00 and \SI{0.08}{\meter} but not 0.15 and \SI{0.30}{\meter}, with a boundary at \SI{0.095}{\meter}. Camera viewpoint changes the optical information that specifies the boundary (visible gap, occlusion, flow) but not the affordance computed in world coordinates. This supports the separation of affordance (a simulated actor--environment relation), judgment (not yet measured) and outcome (not tested), and the visual-only nature of the display.

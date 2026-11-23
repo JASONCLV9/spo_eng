@@ -1,27 +1,72 @@
-\section{Ecological Interpretation and Discussion (Gibson)}
-\label{sec:discusion}
+\section{Ecological information analysis: what the camera changes}\label{sec:ecological}
 
-\subsection{Optical Invariants and Visual Flow Structure}
-According to Gibson \cite{gibson1979ecological}, perceptual guidance of action does not rely on static retinal snapshots reconstructed by inferential cognition, but rather on higher-order invariants within the ambient optic array. In our Vizard simulation, specific optical relations specify interception feasibility:
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Optical looming and visual tau ($\tau$):} The rate of optical expansion of the ball and racket specifies the time remaining until contact ($\tau(t) = \theta / \dot{\theta}$), allowing observers to perceive temporal feasibility directly without cognitive distance-speed computation \cite{fajen2005affordance}.
-    \item \textbf{Motion parallax and optical gap closure:} The relative displacement between the racket and the visual boundaries of the table surface and net provides unambiguous geometric depth information and optical gap closure rates.
-\end{itemize}
+\subsection{Information, specificity and the point of observation}
 
-\subsection{Actor-Relative Affordances and Observer Perspectives}
-In ecological psychology, affordances are intrinsically \textbf{actor-relative}: table dimensions and ball distances gain functional behavioral meaning only when scaled to the player's limb geometry, postural reach, and acceleration capacity.
+\emph{Ecological information} is structure in the ambient optic array that specifies a property of the environment, so that action can be guided without inferential reconstruction~\cite{gibson1979}. Here the property is ``this sweep brings the blade into contact with the ball''. Candidate specifying variables are: (i)~the \textbf{optical gap} between blade edge and ball, read against invariant references (table edges, sidelines, net, \SI{1}{\meter} ruler); (ii)~the \textbf{closure rate} of that gap, which gives a time-to-contact variable $\tau_{\mathrm{gap}}=\theta_{\mathrm{gap}}/\dot\theta_{\mathrm{gap}}$~\cite{lee1976}; and (iii)~the \textbf{heading} of the racket, since a blade moving toward the ball makes the focus of expansion of its optical flow fall on the ball's image. Because the ball is static and the camera is fixed, the ball itself does \emph{not} loom and there is no observer-generated flow: all flow comes from the racket's motion.
 
-Furthermore, switching between the four camera views in Vizard (front-side, frontal, overhead, and posterior) demonstrates that \textbf{an observer's vantage point does not create a private environment}:
-\begin{quote}
-    \textit{``The fact that different observation points yield different perspectives does not imply multiple subjective realities. The underlying invariant physical structure of the event (the stroke trajectory and ball location) remains identical for any observer''} \cite{gibson1979ecological}.
-\end{quote}
-Altering camera viewpoint transforms perspective flow, but the objective affordance of interception remains invariant.
+\textbf{The affordance is the same in every view} (Eq.~\eqref{eq:criterion} is evaluated in world coordinates), but each camera samples the same public array from a different point, so the \emph{specificity} of the available variables changes: a view that collapses a dimension of the offset makes the mapping from image to $d$ many-to-one. An observer-specific viewpoint therefore does not create a private environment: it selects what is available to be picked up from a shared one. The metric structure (ruler length, table size, $d$) is an invariant recoverable from any view~\cite{gibson1979}.
 
-\subsection{Touch--Posture Covariation and Haptic Limits}
-Gibson \cite{gibson1966senses} established that the haptic system acts as an active perceptual system: dynamic touch does not depend on passive cutaneous pressure receptors, but on the \textbf{lawful covariation between joint posture and contact forces} (\emph{touch--posture covariation}) \cite{kim2026haptic}. When a table tennis player wields a racket, the inertia tensor of the blade and viscoelastic tissue deformations specify blade orientation and stroke capability before visual contact occurs.
+\subsection{Camera geometry in the scene}
 
-Here we state an \textbf{explicit declaration regarding the physical limits of our simulation}:
-\begin{quote}
-    \textbf{Our Vizard desktop environment provides visual and kinematic optical information only; it provides no actual haptic interaction.}
-\end{quote}
-A graphical 3D animation and a numerical HUD distance readout do not constitute haptic pickup. Observers perceive optical correlates of motion, but lack dynamic haptic feedback (impact reaction forces, paddle air resistance, and muscular torque flow) that naturally regulates athletic motor performance \cite{kim2026haptic}.
+\begin{table}[t]
+\centering
+\caption{Camera geometry from the script and nominal visual angles (distance to the initial pelvis; the true distance to ball or racket differs by up to $\approx\SI{0.8}{\meter}$). Angles are the maximum, unforeshortened visual angles of the ball (\O\ 40 mm), the blade (\O\ 150 mm) and the 1.5 cm margin of C2 \tagsim.}\label{tab:cameras}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}l Y Y c c c c@{}}
+\toprule
+\textbf{View (key C)} & \textbf{Camera position (script)} & \textbf{Looks at} & \textbf{Dist.} & \textbf{Ball} & \textbf{Blade} & \textbf{C2 margin}\\
+\midrule
+1 Side (racket side) & \SI{3.0}{\meter} to the player's left, $+\SI{0.6}{\meter}$ up, $-\SI{0.5}{\meter}$ world $Z$ & Pelvis, $y=\SI{1.0}{\meter}$ & 3.10 m & $0.74^\circ$ & $2.77^\circ$ & $16.6'$\\
+2 Front & \SI{3.5}{\meter} ahead (\SI{0.36}{\meter} beyond table end), $+\SI{1.0}{\meter}$ up & Pelvis, $y=\SI{1.0}{\meter}$ & 3.64 m & $0.63^\circ$ & $2.36^\circ$ & $14.2'$\\
+3 Top-down & \SI{4.0}{\meter} above pelvis (\SI{0.01}{\meter} $z$-offset) & Pelvis, $y=\SI{0.8}{\meter}$ & 4.00 m & $0.57^\circ$ & $2.15^\circ$ & $12.9'$\\
+4 Behind & \SI{2.5}{\meter} behind, $+\SI{0.8}{\meter}$ up & Table centre, $y=\SI{0.76}{\meter}$ & 2.62 m & $0.87^\circ$ & $3.27^\circ$ & $19.6'$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[t]
+\centering
+% No camera-view screenshots were listed in figures/. Replace each \figph by
+% \includegraphics[width=\linewidth]{view1_side.png} (etc.) once you have them.
+\begin{subfigure}{0.24\textwidth}\figph{View 1 -- Side}\end{subfigure}\hfill
+\begin{subfigure}{0.24\textwidth}\figph{View 2 -- Front}\end{subfigure}\hfill
+\begin{subfigure}{0.24\textwidth}\figph{View 3 -- Top-down}\end{subfigure}\hfill
+\begin{subfigure}{0.24\textwidth}\figph{View 4 -- Behind}\end{subfigure}
+\caption{The four camera views at $t=3.083$ s for the same condition (e.g.\ C2), keeping the skeleton representation fixed.}\label{fig:cameras}
+\end{figure}
+
+\subsection{Foreshortening and occlusion by viewpoint}
+
+Let $\varphi$ be the angle between the line of sight and the displacement from racket to ball; the projected gap is $d\sin\varphi$. Let $\alpha$ be the angle between the offset direction $\uout$ (horizontal pelvis$\to$proxy at $\tref$) and the player's forward axis ($\alpha=\todo{insert value from the console}$). Then Table~\ref{tab:viewpoints} follows.
+
+\begin{table}[t]
+\centering
+\caption{Expected effect of viewpoint on information about the same affordance (geometric reasoning from the script's camera definitions; no occlusion fractions have been measured yet) \tagsim.}\label{tab:viewpoints}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}R{1.1cm} R{2.9cm} R{2.4cm} R{5.2cm} R{4.2cm}@{}}
+\toprule
+\textbf{View} & \textbf{Visible gap of $d$} & \textbf{Lost along line of sight} & \textbf{What occludes what} & \textbf{Flow / heading information}\\
+\midrule
+Side & $\approx d\,\lvert\cos\alpha\rvert$ (full if the offset is mostly forward) & Lateral part, $d\sin\alpha$ & Least self-occlusion: racket arm is nearest the camera, torso on the far side; the translucent blade ($\alpha_{\mathrm{blend}}=0.35$) can overlay the ball & Lateral translation, weak expansion; good angular gap-closure rate; best view of stroke arc and blade pitch\\
+Front & $\approx d\,\lvert\sin\alpha\rvert$ & Forward part, $d\cos\alpha$ & Backswing blade hidden behind torso/hips; net (\SI{0.9}{\meter}) and table lie below the sightline (camera $\ge\SI{1.0}{\meter}$ above pelvis; hand $\approx\SI{1.18}{\meter}$ at impact) & Strongest looming of the approaching blade; focus of expansion specifies heading\\
+Top-down & $d$ (full horizontal offset) & Vertical part of the 3-D miss distance (hand vs.\ ball height); net clearance & Head and shoulders may cover the lower arm; table lines give plan-view references & Plan-view gap closure; no depth-from-expansion; least ecologically valid\\
+Behind & $\approx d\,\lvert\sin\alpha\rvert$ & Forward part, $d\cos\alpha$ & Greatest self-occlusion: torso, shoulder and head can hide the arm, blade and ball near the boundary & Contracting flow (blade recedes); clear view of table and net layout\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Occlusion in this scene is under-represented.} The skeleton is drawn with thin lines (4~px) and \SI{2.5}{\centi\meter} joint spheres, while the avatar is placed \SI{1.5}{\meter} beside it ($+X$) and therefore cannot occlude the proxy or ball. A real observer would face opaque limbs and trunk; our views are mostly see-through. Conversely, a ball of $0.6$--$0.9^\circ$ can be hidden by a single line or sphere, so even this weak occlusion matters near the boundary. The skeleton/avatar choice must therefore be fixed and reported for all judgments. \tagprop{} \textbf{occlusion metric:} for each camera and frame in the interval $\tref\pm\SI{0.3}{\second}$, cast rays from the camera to the ball centre and to the blade centre, test them against capsules around the skeleton links (e.g.\ $r=\SI{0.04}{\meter}$ forearm, $0.05$ upper arm, $0.15$ trunk, $0.10$ head), and report the fraction of occluded frames and the visible gap angle. A \textbf{temporal occlusion} variant (blackout before $\tref$) would test whether pre-impact kinematics suffice to specify the outcome.
+
+\subsection{Real versus perceived possibility, action boundary and judgment curves}\label{sec:judgment-curves}
+
+The real possibility is fixed by the actor's effectivities and the ball position (action boundary $\Rc=\SI{0.095}{\meter}$ along this path); the perceived possibility is the proportion of ``possible'' judgments, summarized by a sigmoidal judgment curve whose 50\,\% point $d_{50}$ is the perceived boundary and whose slope indexes sensitivity~\cite{warren1984,fajen2005}. Camera is a \textbf{within-observer factor} (4 views $\times$ the offsets of Section~\ref{sec:protocol}); each view gives its own curve and a calibration bias $d_{50}(\text{view})-\SI{0.095}{\meter}$.
+
+\tagprop{} \textbf{Hypotheses.} \textbf{H1}: views that project the offset laterally (side; top-down) give steeper curves and $d_{50}$ nearer \SI{0.095}{\meter} than views where $d$ lies largely along the line of sight (front, behind), by an amount that depends on $\alpha$. \textbf{H2}: the behind view gives the flattest curves and lowest confidence near C2/C3 because the blade--ball gap is partly occluded. \textbf{H3}: top-down is adequate for the present conditions (ball and blade share height at $\tref$ by construction) but would over-estimate reachability if vertical offsets were manipulated. Differences between views would reflect \textbf{attunement} (education of attention to the most specifying variable) and calibration, not a different affordance. Because ecological validity and informational sufficiency can diverge (top-down is informative but unlike any real viewpoint), conclusions should be drawn per view.
+
+\subsection{Perception--action loop, depth cues and haptic limits}
+
+\textbf{Loop.} Affordance, intention (an attacking loop), perception of the action boundary and action form a closed cycle; the replay is \textbf{open-loop} and the observer's exploration is reduced to four discrete camera jumps (\texttt{C}), without continuous motion parallax. With one fixed monocular desktop view there is also no binocular disparity, so depth along the line of sight relies on pictorial information: interposition (occlusion), relative size, ground texture and table edges, and the known \SI{40}{\milli\meter} ball and \SI{1}{\meter} ruler~\cite{cutting1995}.
+
+\textbf{Haptics.} In live play, posture covaries lawfully with inertial and contact forces transmitted through the racket (\textbf{dynamic touch}, via its inertia tensor); this touch--posture covariation is information in itself about blade orientation and sweet spot, available without looking at the hand~\cite{gibson1966,turvey1996,kim2026}. \textbf{Our scene provides visual information only and no haptic interaction}: rendering racket--ball geometry or a distance read-out simulates a spatial relation but is not haptic pickup.

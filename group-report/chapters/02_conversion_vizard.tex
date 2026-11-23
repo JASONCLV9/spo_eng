@@ -1,35 +1,12 @@
-\section{Coordinate Conversion and Vizard Implementation}
-\label{sec:conversion}
+\section{Conversion to Vizard and scene}\label{sec:conversion}
 
-\subsection{Kinematic Axis and Quaternion Mapping}
-The Xsens MVN reference coordinate system establishes $X$ pointing forward, $Y$ lateral to the left, and $Z$ vertical upward. Conversely, the virtual reality graphics engine \Vizard{} (v8.3.1) \cite{worldviz2024vizard} employs a standard right-handed convention with $X$ pointing lateral to the right, $Y$ vertical upward, and $Z$ forward. Consequently, the linear spatial translation and quaternion transformation are uniquely governed by:
+\paragraph{Mapping.} Position and quaternion $(x,y,z,w)$ are converted from the Xsens frame (subscript $X$) to the Vizard frame (subscript $V$) as
 \begin{align}
-  \mathbf{p}_{\text{Vizard}} & = \begin{bmatrix} -y_{\text{Xsens}} \\ z_{\text{Xsens}} \\ x_{\text{Xsens}} \end{bmatrix}, \label{eq:pos_map}      \\
-  \mathbf{q}_{\text{Vizard}} & = \left(-y_{\text{Xsens}},\, z_{\text{Xsens}},\, x_{\text{Xsens}},\, -w_{\text{Xsens}}\right). \label{eq:quat_map}
+\mathbf{p}_V &= \left(-y_X,\; z_X,\; x_X\right), \label{eq:pos}\\
+\mathbf{q}_V &= \left(-y_X,\; z_X,\; x_X,\; -w_X\right). \label{eq:quat}
 \end{align}
+Vizard's frame is left-handed, so the axis permutation is a reflection ($\det=-1$). Rotation axes then transform as pseudovectors, which is why Eq.~\eqref{eq:quat} is equivalent ($\mathbf{q}\equiv-\mathbf{q}$) to $(y,\,-z,\,-x,\,w)$. Timing is preserved: normal playback runs at $1.0\times$ real time; the \texttt{S} key switches to a $0.25\times$ slow-motion mode that is labeled in red on the HUD. The frame shown is $\lfloor 60\,t\rfloor$, without interpolation.
 
-To eliminate arbitrary horizontal laboratory offsets while strictly preserving true vertical floor height, an origin shift is applied such that the initial pelvis position ($t = 0\text{ s}$) resides precisely at $(0,\, y_{\text{pelvis},0},\, 0)\text{ m}$.
+The scene uses a \textbf{dual representation}: a metric skeleton (joint spheres and bone lines at true Xsens positions, used for all distance and criterion computations) and a retargeted avatar (\texttt{vcc\_male}, Bip01 hierarchy, drawn \SI{1.5}{\meter} beside it in $+X$, hidden at start) for qualitative inspection only.
 
-\subsection{Dual Representation: Kinematic Skeleton and Visual Avatar}
-To prevent visual mesh artifacts from confounding quantitative biomechanical metrics, the virtual environment incorporates a dual representation:
-\begin{enumerate}[leftmargin=*]
-  \item \textbf{Segment Skeleton:} Composed of rigid spherical joint markers (\texttt{joint nodes}) and dynamic line segments (\texttt{bones\_lines}) rendered directly from true metric Xsens coordinate positions. Euclidean distances, the racket proxy location, and affordance criterion tests are computed exclusively within this veridical metric space.
-  \item \textbf{Retargeted Avatar (\texttt{vcc\_male.cfg}):} Positioned adjacent to the skeleton (lateral offset of $+1.2\text{ m}$ in $X$) and driven by relative sensor rotations applied to the standard bip-skeleton hierarchy (\texttt{Bip01}). This avatar serves qualitative visual inspection of actor volume.
-\end{enumerate}
-
-\subsection{Virtual Environment and Scale References}
-The virtual scene faithfully reproduces official ITTF tournament table tennis dimensions: length of $2.74\text{ m}$, width of $1.525\text{ m}$, tabletop surface height of $0.76\text{ m}$, and a center net height of $0.1525\text{ m}$. The table automatically aligns along the horizontal swing vector at peak velocity ($t = 3.083\text{ s}$) and sits at a standard clearance distance of $0.40\text{ m}$ from the player's initial pelvis. A 3D physical scale ruler of $1.0\text{ m}$ with alternating black-and-white $10\text{ cm}$ segments is placed on the floor, providing an independent, human-readable optical reference.
-
-\subsection{Interactive Playback Controls}
-The scene provides comprehensive interactive keyboard control:
-\begin{itemize}[leftmargin=*]
-  \item \texttt{SPACE}: Toggle Play / Pause.
-  \item \texttt{R}: Restart playback to initial frame ($t = 0\text{ s}$, frame 0).
-  \item \texttt{S}: Toggle playback speed between real-time ($1.0\times$) and calibrated slow-motion ($0.25\times$), explicitly labeled in red in the HUD.
-  \item \texttt{1}, \texttt{2}, \texttt{3}, \texttt{4}: Select environmental affordance condition (ball location).
-  \item \texttt{V}: Show / hide the objective criterion result (blind judgment mode).
-  \item \texttt{C}: Cycle through 4 camera vantage points (front-side, front, top-down, and behind player).
-  \item \texttt{G}: Step directly to the three validation timestamps.
-  \item \texttt{P}: Print instantaneous values (time, frame, flexion, height, ball-racket distance) to console.
-  \item \texttt{T}, \texttt{A}, \texttt{K}: Toggle visibility of racket sweep trail, avatar, and skeleton.
-\end{itemize}
+\paragraph{Scene and controls.} An ITTF table ($2.74\times\SI{1.525}{\meter}$, top at \SI{0.76}{\meter}, net \SI{0.1525}{\meter}) is placed \SI{0.40}{\meter} from the initial pelvis and aligned with the horizontal swing direction at peak speed (adjustable live with \texttt{N/M/U/I}); a \SI{1.0}{\meter} floor ruler with \SI{10}{\centi\meter} black/white segments gives a visible scale. Controls: \texttt{SPACE} (play/pause), \texttt{R} (restart), \texttt{S} ($1.0\times$/$0.25\times$), \texttt{1}--\texttt{4} (condition), \texttt{V} (criterion, hidden at start), $\leftarrow/\rightarrow$ (frame step), \texttt{C} (camera, 4 views), \texttt{G} (validation times), \texttt{P} (print), \texttt{T/A/K} (trail/avatar/skeleton), \texttt{H} (help). The complete list is in Annex~\ref{app:config}.

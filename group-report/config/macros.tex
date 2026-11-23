@@ -1,16 +1,30 @@
-% Macros para valores y notaciones del proyecto ME5314
-\newcommand{\Rpaddle}{0.075}
-\newcommand{\Rball}{0.020}
-\newcommand{\Rcontact}{0.095}
-\newcommand{\FrameRate}{60.0}
-\newcommand{\SlowFactor}{0.25}
+% ---------- Evidence labels (course requirement: observed / simulated / proposed) ----------
+\newcommand{\tagobs}{\textbf{[OBSERVED]}}
+\newcommand{\tagsim}{\textbf{[SIMULATED]}}
+\newcommand{\tagprop}{\textbf{[PROPOSED]}}
+\newcommand{\tagill}{\textbf{[ILLUSTRATIVE]}}
 
-% Nombres de software y entorno
-\newcommand{\Vizard}{\textsc{Vizard}}
-\newcommand{\OpenSim}{\textsc{OpenSim}}
-\newcommand{\Xsens}{\textsc{Xsens MVN}}
+% ---------- Notation ----------
+\newcommand{\Rc}{\ensuremath{R_{\mathrm{c}}}}
+\newcommand{\Rpad}{\ensuremath{R_{\mathrm{paddle}}}}
+\newcommand{\Rball}{\ensuremath{R_{\mathrm{ball}}}}
+\newcommand{\Pref}{\ensuremath{\mathbf{P}_{\mathrm{ref}}}}
+\newcommand{\Pball}{\ensuremath{\mathbf{P}_{\mathrm{ball}}}}
+\newcommand{\uout}{\ensuremath{\mathbf{u}_{\mathrm{out}}}}
+\newcommand{\dmin}{\ensuremath{d_{\mathrm{min}}}}
+\newcommand{\tmin}{\ensuremath{t_{\mathrm{min}}}}
+\newcommand{\tref}{\ensuremath{t_{\mathrm{ref}}}}
+\newcommand{\KL}{\ensuremath{D_{\mathrm{KL}}}}
+\newcommand{\given}{\mid}
 
-\newcommand{\degUnit}[1]{#1^{\circ}}
-\newcommand{\mUnit}[1]{#1\text{ m}}
-\newcommand{\sUnit}[1]{#1\text{ s}}
-\newcommand{\hzUnit}[1]{#1\text{ Hz}}
+% ---------- Pending values / missing images ----------
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+% Placeholder box for figures that do not exist yet: \figph{description}
+\newcommand{\figph}[1]{%
+  \fbox{\parbox[c][3.0cm][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\small\textbf{[INSERT IMAGE]}\\#1}}}
+
+% Left-aligned flexible column for tabularx (avoids overfull boxes in narrow cells)
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Fixed-width left-aligned column: R{width}
+\newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}

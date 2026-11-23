@@ -1,25 +1,19 @@
-\begin{table*}[t]
-    \centering
-    \caption{Quantitative comparison between OpenSim and Vizard across three synchronized topspin validation timestamps.}
-    \label{tab:comparacion_opensim_vizard}
-    \small
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccc@{}}
-        \toprule
-        \textbf{Phase / Timestamp} & \textbf{Kinematic Variable} & \textbf{Unit} & \textbf{OpenSim} & \textbf{Vizard} & \textbf{Discrepancy ($\Delta$)} & \textbf{Rel. Difference (\%)} \\
-        \midrule
-        \multirow{2}{*}{\textbf{V1: Preparation}} & Left elbow flexion & degrees ($^{\circ}$) & $68.03$ & $71.60$ & $+3.57^{\circ}$ & $5.25\,\%$ \\
-        ($t = 2.500\text{ s}$, Frame 150) & Left hand height & meters (m) & $1.124$ & $1.081$ & $-0.043\text{ m}$ & $-3.83\,\%$ \\
-        \midrule
-        \multirow{2}{*}{\textbf{V2: Impact / Peak speed}} & Left elbow flexion & degrees ($^{\circ}$) & $15.48$ & $20.60$ & $+5.12^{\circ}$ & $33.07\,\%$* \\
-        ($t = 3.083\text{ s}$, Frame 185) & Left hand height & meters (m) & $1.148$ & $1.177$ & $+0.029\text{ m}$ & $2.53\,\%$ \\
-        \midrule
-        \multirow{2}{*}{\textbf{V3: Follow-through}} & Left elbow flexion & degrees ($^{\circ}$) & $95.02$ & $94.64$ & $-0.38^{\circ}$ & $-0.40\,\%$ \\
-        ($t = 3.600\text{ s}$, Frame 216) & Left hand height & meters (m) & $1.225$ & $1.334$ & $+0.109\text{ m}$ & $8.90\,\%$ \\
-        \bottomrule
-    \end{tabular*}
-    \vspace{0.1cm}
-    \begin{minipage}{\textwidth}
-        \footnotesize
-        *Note: At impact (V2), the elbow reaches near-maximal extension ($15^{\circ}$--$20^{\circ}$), magnifying percentage difference despite a minor absolute deviation of only $5.12^{\circ}$. Discrepancies stem from differences between OpenSim's constrained kinematic linkage model (\texttt{Rajagopal2015.osim}) and Vizard's direct segment tracking from Xsens MVN IMUs.
-    \end{minipage}
-\end{table*}
+\begin{table}[t]
+\centering
+\caption{OpenSim vs.\ Vizard at three matching timestamps \tagobs{} (kinematics; comparison computed from the exported series).}\label{tab:validation}
+\footnotesize
+\begin{tabular}{@{}llcrrrr@{}}
+\toprule
+\textbf{Timestamp / frame} & \textbf{Variable} & \textbf{Unit} & \textbf{OpenSim} & \textbf{Vizard} & \textbf{$\Delta$ (Viz.$-$OS)} & \textbf{Rel.\ diff.}\\
+\midrule
+\multirow{2}{*}{V1\; $t=2.500$ s (f150)} & Left elbow flexion & deg & 68.03 & 71.60 & $+3.57$ & $+5.2\,\%$\\
+ & Left hand height & m & 1.120 & 1.081 & $-0.039$ & $-3.5\,\%$\\
+\addlinespace
+\multirow{2}{*}{V2\; $t=3.083$ s (f185)} & Left elbow flexion & deg & 15.48 & 20.60 & $+5.12$ & $+33.1\,\%$\\
+ & Left hand height & m & 1.150 & 1.177 & $+0.027$ & $+2.3\,\%$\\
+\addlinespace
+\multirow{2}{*}{V3\; $t=3.600$ s (f216)} & Left elbow flexion & deg & 94.69 & 94.60 & $-0.09$ & $-0.1\,\%$\\
+ & Left hand height & m & 1.230 & 1.334 & $+0.104$ & $+8.5\,\%$\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -3,6 +3,16 @@
 
 **Students:** Chambe, J., Gonzalez, S., Kamt, L.
 
+## Launch instructions
+1. Install Vizard 8.3.1 and unzip the package *src* keeping the folder structure above.
+2. Open Vizard and go to *File > Open*.
+3. Open *script/topspin_affordance_scene.py* and click Run (F5).
+4. Press H in the scene to see the help. The console prints the startup summary and the criterion results.
+5. (Optional) Open and run *script/visualize_motion_data.py* to view the recorded motions.
+
+The scripts must be run from Vizard.
+
+
 ## Folder structure
 ```
 │   README.md
@@ -83,12 +93,3 @@ Scripts read the CSV files from *motion-data/* automatically.
 - Sampling rate: 60 Hz.
 - Ball offsets (conditions): 0.00, 0.08, 0.15, 0.30 m. 
 - Contact threshold: 0.095 m (paddle radius 0.075 m + ball radius 0.020 m).
-
-## Launch instructions
-1. Install Vizard 8.3.1 and unzip the package *src* keeping the folder structure above.
-2. Open Vizard and go to *File > Open*.
-3. Open *script/topspin_affordance_scene.py* and click Run (F5).
-4. Press H in the scene to see the help. The console prints the startup summary and the criterion results.
-5. (Optional) Open and run *script/visualize_motion_data.py* to view the recorded motions.
-
-The scripts must be run from Vizard.

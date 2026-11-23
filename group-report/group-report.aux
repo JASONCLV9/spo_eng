@@ -4,88 +4,118 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{delp2007opensim}
-\citation{rajagopal2016fullbody}
+\citation{delp2007}
+\citation{rajagopal2016}
+\citation{vizard2024}
 \babel@aux{english}{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Motion Provenance and Data Acquisition}{1}{section.1}\protected@file@percent }
-\newlabel{sec:procedencia}{{1}{1}{Motion Provenance and Data Acquisition}{section.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Experimental Source and Xsens MVN Data}{1}{subsection.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Musculoskeletal Model in OpenSim}{1}{subsection.1.2}\protected@file@percent }
-\citation{worldviz2024vizard}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Coordinate Conversion and Vizard Implementation}{2}{section.2}\protected@file@percent }
-\newlabel{sec:conversion}{{2}{2}{Coordinate Conversion and Vizard Implementation}{section.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Kinematic Axis and Quaternion Mapping}{2}{subsection.2.1}\protected@file@percent }
-\newlabel{eq:pos_map}{{1}{2}{Kinematic Axis and Quaternion Mapping}{equation.1}{}}
-\newlabel{eq:quat_map}{{2}{2}{Kinematic Axis and Quaternion Mapping}{equation.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Dual Representation: Kinematic Skeleton and Visual Avatar}{2}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Virtual Environment and Scale References}{2}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Interactive Playback Controls}{2}{subsection.2.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Quantitative comparison between OpenSim and Vizard across three synchronized topspin validation timestamps.}}{3}{table.caption.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Motion provenance}{1}{section.1}\protected@file@percent }
+\newlabel{sec:prov}{{1}{1}{Motion provenance}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Conversion to Vizard and scene}{1}{section.2}\protected@file@percent }
+\newlabel{sec:conversion}{{2}{1}{Conversion to Vizard and scene}{section.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Mapping.}{1}{paragraph*.2}\protected@file@percent }
+\newlabel{eq:pos}{{1}{1}{Mapping}{equation.1}{}}
+\newlabel{eq:quat}{{2}{1}{Mapping}{equation.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Scene and controls.}{1}{paragraph*.3}\protected@file@percent }
+\citation{gibson1979}
+\citation{warren1984}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Provenance of the recorded motion.}}{2}{table.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:comparacion_opensim_vizard}{{1}{3}{Quantitative comparison between OpenSim and Vizard across three synchronized topspin validation timestamps}{table.caption.1}{}}
-\newlabel{fig:vizard_v1}{{1a}{3}{V1: Preparation ($t = 2.500\text { s}$)}{figure.caption.2}{}}
-\newlabel{sub@fig:vizard_v1}{{a}{3}{V1: Preparation ($t = 2.500\text { s}$)}{figure.caption.2}{}}
-\newlabel{fig:vizard_v2}{{1b}{3}{V2: Impact / Peak speed ($t = 3.083\text { s}$)}{figure.caption.2}{}}
-\newlabel{sub@fig:vizard_v2}{{b}{3}{V2: Impact / Peak speed ($t = 3.083\text { s}$)}{figure.caption.2}{}}
-\newlabel{fig:vizard_v3}{{1c}{3}{V3: Follow-through ($t = 3.600\text { s}$)}{figure.caption.2}{}}
-\newlabel{sub@fig:vizard_v3}{{c}{3}{V3: Follow-through ($t = 3.600\text { s}$)}{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Synchronized Vizard screenshots at the three validation timestamps, displaying segment skeleton, retargeted avatar, tournament table, and real-time quantitative HUD.}}{3}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:vizard_tres_frames}{{1}{3}{Synchronized Vizard screenshots at the three validation timestamps, displaying segment skeleton, retargeted avatar, tournament table, and real-time quantitative HUD}{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Three-Frame Validation: OpenSim versus Vizard}{3}{section.3}\protected@file@percent }
-\newlabel{sec:validacion}{{3}{3}{Three-Frame Validation: OpenSim versus Vizard}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Numerical Comparison of Kinematic Variables}{3}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Analytical Discussion of Discrepancies}{3}{subsection.3.2}\protected@file@percent }
-\citation{gibson1979ecological}
-\newlabel{fig:comp_elbow}{{2a}{4}{Continuous left elbow flexion trajectory (degrees)}{figure.caption.3}{}}
-\newlabel{sub@fig:comp_elbow}{{a}{4}{Continuous left elbow flexion trajectory (degrees)}{figure.caption.3}{}}
-\newlabel{fig:comp_height}{{2b}{4}{Continuous left hand vertical height trajectory (meters)}{figure.caption.3}{}}
-\newlabel{sub@fig:comp_height}{{b}{4}{Continuous left hand vertical height trajectory (meters)}{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Continuous time-series comparison between OpenSim (\texttt  {Rajagopal2015.osim}) and Vizard across the entire recorded stroke ($60\text  { Hz}$). Both acceleration, impact, and deceleration profiles demonstrate near-identical morphological and temporal tracking.}}{4}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:curvas_comparacion}{{2}{4}{Continuous time-series comparison between OpenSim (\texttt {Rajagopal2015.osim}) and Vizard across the entire recorded stroke ($60\text { Hz}$). Both acceleration, impact, and deceleration profiles demonstrate near-identical morphological and temporal tracking}{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Affordance Investigation: Design, Criterion, and Results}{4}{section.4}\protected@file@percent }
-\newlabel{sec:affordancia}{{4}{4}{Affordance Investigation: Design, Criterion, and Results}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Action Possibility Definition}{4}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Manipulated Environmental Parameter and Ordered Conditions}{4}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Experimental results of the affordance investigation in Vizard across the four ordered conditions.}}{5}{table.caption.4}\protected@file@percent }
-\newlabel{tab:condiciones_affordancia}{{2}{5}{Experimental results of the affordance investigation in Vizard across the four ordered conditions}{table.caption.4}{}}
-\newlabel{fig:cond_c1}{{3a}{5}{$C_1$: $d = 0.00\text { m}$ (INTERCEPT)}{figure.caption.5}{}}
-\newlabel{sub@fig:cond_c1}{{a}{5}{$C_1$: $d = 0.00\text { m}$ (INTERCEPT)}{figure.caption.5}{}}
-\newlabel{fig:cond_c2}{{3b}{5}{$C_2$: $d = 0.08\text { m}$ (INTERCEPT)}{figure.caption.5}{}}
-\newlabel{sub@fig:cond_c2}{{b}{5}{$C_2$: $d = 0.08\text { m}$ (INTERCEPT)}{figure.caption.5}{}}
-\newlabel{fig:cond_c3}{{3c}{5}{$C_3$: $d = 0.15\text { m}$ (NO INTERCEPT)}{figure.caption.5}{}}
-\newlabel{sub@fig:cond_c3}{{c}{5}{$C_3$: $d = 0.15\text { m}$ (NO INTERCEPT)}{figure.caption.5}{}}
-\newlabel{fig:cond_c4}{{3d}{5}{$C_4$: $d = 0.30\text { m}$ (NO INTERCEPT)}{figure.caption.5}{}}
-\newlabel{sub@fig:cond_c4}{{d}{5}{$C_4$: $d = 0.30\text { m}$ (NO INTERCEPT)}{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Vizard screenshots across the four experimental conditions, showing ball spatial location, racket sweep trajectory, and real-time HUD metrics.}}{5}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:vizard_condiciones}{{3}{5}{Vizard screenshots across the four experimental conditions, showing ball spatial location, racket sweep trajectory, and real-time HUD metrics}{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Independent Geometric Criterion and Boundary Prediction}{5}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Experimental Results in Vizard}{5}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Proposed Judgment Protocol}{5}{subsection.4.5}\protected@file@percent }
-\citation{gibson1979ecological}
-\citation{fajen2005affordance}
-\citation{gibson1979ecological}
-\citation{gibson1966senses}
-\citation{kim2026haptic}
-\citation{kim2026haptic}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Ecological Interpretation and Discussion (Gibson)}{6}{section.5}\protected@file@percent }
-\newlabel{sec:discusion}{{5}{6}{Ecological Interpretation and Discussion (Gibson)}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Optical Invariants and Visual Flow Structure}{6}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Actor-Relative Affordances and Observer Perspectives}{6}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Touch--Posture Covariation and Haptic Limits}{6}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations, Conclusions, and Contributions}{6}{section.6}\protected@file@percent }
-\newlabel{sec:conclusiones}{{6}{6}{Limitations, Conclusions, and Contributions}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model Assumptions and Study Limitations}{6}{subsection.6.1}\protected@file@percent }
+\newlabel{tab:provenance}{{1}{2}{Provenance of the recorded motion}{table.caption.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces OpenSim vs.\ Vizard at three matching timestamps \textbf  {[OBSERVED]}{} (kinematics; comparison computed from the exported series).}}{2}{table.caption.4}\protected@file@percent }
+\newlabel{tab:validation}{{2}{2}{OpenSim vs.\ Vizard at three matching timestamps \tagobs {} (kinematics; comparison computed from the exported series)}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Three-frame validation: OpenSim versus Vizard}{2}{section.3}\protected@file@percent }
+\newlabel{sec:validation}{{3}{2}{Three-frame validation: OpenSim versus Vizard}{section.3}{}}
+\newlabel{eq:elbow}{{3}{2}{Three-frame validation: OpenSim versus Vizard}{equation.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Reading the checks.}{2}{paragraph*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Affordance investigation}{2}{section.4}\protected@file@percent }
+\newlabel{sec:affordance}{{4}{2}{Affordance investigation}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Action possibility, actor, and what is \emph  {not} claimed}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Ordered conditions and criterion results \textbf  {[SIMULATED]}.}}{3}{table.caption.6}\protected@file@percent }
+\newlabel{tab:conditions}{{3}{3}{Ordered conditions and criterion results \tagsim }{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Effector surrogate, criterion and boundary prediction}{3}{subsection.4.2}\protected@file@percent }
+\newlabel{eq:criterion}{{4}{3}{Effector surrogate, criterion and boundary prediction}{equation.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Critical reading.}{3}{paragraph*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Evidence labeling and proposed judgment protocol}{3}{section.5}\protected@file@percent }
+\newlabel{sec:protocol}{{5}{3}{Evidence labeling and proposed judgment protocol}{section.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Provenance.}{3}{paragraph*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Affordance, judgment and outcome are three different things:}{3}{paragraph*.9}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Levels of analysis and evidence status.}}{3}{table.caption.10}\protected@file@percent }
+\newlabel{tab:levels}{{4}{3}{Levels of analysis and evidence status}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {paragraph}{Protocol.}{3}{paragraph*.11}\protected@file@percent }
+\citation{gibson1979}
+\citation{lee1976}
+\citation{gibson1979}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Camera geometry from the script and nominal visual angles (distance to the initial pelvis; the true distance to ball or racket differs by up to $\approx \SI {0.8}{\meter }$). Angles are the maximum, unforeshortened visual angles of the ball (\O \ 40 mm), the blade (\O \ 150 mm) and the 1.5 cm margin of C2 \textbf  {[SIMULATED]}.}}{4}{table.caption.12}\protected@file@percent }
+\newlabel{tab:cameras}{{5}{4}{Camera geometry from the script and nominal visual angles (distance to the initial pelvis; the true distance to ball or racket differs by up to $\approx \SI {0.8}{\meter }$). Angles are the maximum, unforeshortened visual angles of the ball (\O \ 40 mm), the blade (\O \ 150 mm) and the 1.5 cm margin of C2 \tagsim }{table.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The four camera views at $t=3.083$ s for the same condition (e.g.\ C2), keeping the skeleton representation fixed.}}{4}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:cameras}{{1}{4}{The four camera views at $t=3.083$ s for the same condition (e.g.\ C2), keeping the skeleton representation fixed}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Ecological information analysis: what the camera changes}{4}{section.6}\protected@file@percent }
+\newlabel{sec:ecological}{{6}{4}{Ecological information analysis: what the camera changes}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Information, specificity and the point of observation}{4}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Camera geometry in the scene}{4}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Foreshortening and occlusion by viewpoint}{4}{subsection.6.3}\protected@file@percent }
+\citation{warren1984}
+\citation{fajen2005}
+\citation{cutting1995}
+\citation{gibson1966}
+\citation{turvey1996}
+\citation{kim2026}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Expected effect of viewpoint on information about the same affordance (geometric reasoning from the script's camera definitions; no occlusion fractions have been measured yet) \textbf  {[SIMULATED]}.}}{5}{table.caption.14}\protected@file@percent }
+\newlabel{tab:viewpoints}{{6}{5}{Expected effect of viewpoint on information about the same affordance (geometric reasoning from the script's camera definitions; no occlusion fractions have been measured yet) \tagsim }{table.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Real versus perceived possibility, action boundary and judgment curves}{5}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:judgment-curves}{{6.4}{5}{Real versus perceived possibility, action boundary and judgment curves}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Perception--action loop, depth cues and haptic limits}{5}{subsection.6.5}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{bib/refs}
-\bibcite{delp2007opensim}{1}
-\bibcite{rajagopal2016fullbody}{2}
-\bibcite{worldviz2024vizard}{3}
-\bibcite{gibson1979ecological}{4}
-\bibcite{fajen2005affordance}{5}
-\bibcite{gibson1966senses}{6}
-\bibcite{kim2026haptic}{7}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Conclusions}{7}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Group Contribution Table}{7}{subsection.6.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Individual contribution breakdown of group members.}}{7}{table.caption.6}\protected@file@percent }
-\newlabel{tab:contribuciones}{{3}{7}{Individual contribution breakdown of group members}{table.caption.6}{}}
-\gdef \@abspage@last{8}
+\bibcite{delp2007}{1}
+\bibcite{rajagopal2016}{2}
+\bibcite{vizard2024}{3}
+\bibcite{gibson1979}{4}
+\bibcite{warren1984}{5}
+\bibcite{lee1976}{6}
+\bibcite{fajen2005}{7}
+\bibcite{cutting1995}{8}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and conclusions}{6}{section.7}\protected@file@percent }
+\newlabel{sec:limits}{{7}{6}{Limitations and conclusions}{section.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{Conclusion.}{6}{paragraph*.15}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Group contributions.}}{6}{table.caption.16}\protected@file@percent }
+\newlabel{tab:contrib}{{7}{6}{Group contributions}{table.caption.16}{}}
+\bibcite{gibson1966}{9}
+\bibcite{turvey1996}{10}
+\bibcite{kim2026}{11}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Vizard configuration and controls}{7}{appendix.A}\protected@file@percent }
+\newlabel{app:config}{{A}{7}{Vizard configuration and controls}{appendix.A}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Keyboard controls of the Vizard entry script (software: Vizard 8.3.1; desktop mode).}}{7}{table.caption.17}\protected@file@percent }
+\newlabel{tab:controls}{{8}{7}{Keyboard controls of the Vizard entry script (software: Vizard 8.3.1; desktop mode)}{table.caption.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{Fixed scene parameters.}{7}{paragraph*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproduction.}{7}{paragraph*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Information-theoretic analysis of the three recorded strokes}{7}{appendix.B}\protected@file@percent }
+\newlabel{app:info}{{B}{7}{Information-theoretic analysis of the three recorded strokes}{appendix.B}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Data, variables and labels}{7}{subsection.B.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces The three strokes (Vizard axes: $X$ right, $Y$ up, $Z$ forward). The RMS radial spread of the three impact points about their mean is \textbf  {0.068 m}, which is $72\,\%$ of the contact threshold $\ensuremath  {R_{\mathrm  {c}}}=\SI {0.095}{\meter }$.}}{7}{table.caption.20}\protected@file@percent }
+\newlabel{tab:strokes}{{9}{7}{The three strokes (Vizard axes: $X$ right, $Y$ up, $Z$ forward). The RMS radial spread of the three impact points about their mean is \textbf {0.068 m}, which is $72\,\%$ of the contact threshold $\Rc =\SI {0.095}{\meter }$}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Entropy, bits and nats}{8}{subsection.B.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Entropy of the proxy-speed occupancy \textbf  {[OBSERVED]}. The plug-in estimate is biased low for 31 frames in 8 bins by about $(K-1)/(2N)=0.11$ nats (0.16 bits, Miller--Madow); the three strokes are affected equally.}}{8}{table.caption.21}\protected@file@percent }
+\newlabel{tab:entropy}{{10}{8}{Entropy of the proxy-speed occupancy \tagobs . The plug-in estimate is biased low for 31 frames in 8 bins by about $(K-1)/(2N)=0.11$ nats (0.16 bits, Miller--Madow); the three strokes are affected equally}{table.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Kullback--Leibler divergence between strokes}{8}{subsection.B.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces $\ensuremath  {D_{\mathrm  {KL}}}(\text  {row}\Vert \text  {column})$ of the proxy-speed occupancy, in bits \textbf  {[OBSERVED]}. In nats multiply by 0.693.}}{8}{table.caption.22}\protected@file@percent }
+\newlabel{tab:kl}{{11}{8}{$\KL (\text {row}\Vert \text {column})$ of the proxy-speed occupancy, in bits \tagobs . In nats multiply by 0.693}{table.caption.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Conditional problems with two events}{8}{subsection.B.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Problem 1 -- Frames: is a fast racket informative about contact?}{8}{paragraph*.23}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Frame counts for Problem 1 \textbf  {[SIMULATED]}.}}{8}{table.caption.24}\protected@file@percent }
+\newlabel{tab:p1}{{12}{8}{Frame counts for Problem 1 \tagsim }{table.caption.24}{}}
+\@writefile{toc}{\contentsline {paragraph}{Problem 2 -- Stroke trials: does near/far predict interception?}{9}{paragraph*.25}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Trial counts for Problem 2 \textbf  {[SIMULATED]}.}}{9}{table.caption.26}\protected@file@percent }
+\newlabel{tab:p2}{{13}{9}{Trial counts for Problem 2 \tagsim }{table.caption.26}{}}
+\@writefile{toc}{\contentsline {paragraph}{Problem 3 -- Which stroke intercepts, and what is the probability?}{9}{paragraph*.27}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Closest approach \ensuremath  {d_{\mathrm  {min}}}\ (m) per stroke window; $^{*}$ = intercept \textbf  {[SIMULATED]}. Linear interpolation between frames lowers \ensuremath  {d_{\mathrm  {min}}}\ by at most 0.008 m (e.g.\ C1, S1: 0.075 m) and changes no verdict.}}{9}{table.caption.28}\protected@file@percent }
+\newlabel{tab:p3}{{14}{9}{Closest approach \dmin \ (m) per stroke window; $^{*}$ = intercept \tagsim . Linear interpolation between frames lowers \dmin \ by at most 0.008 m (e.g.\ C1, S1: 0.075 m) and changes no verdict}{table.caption.28}{}}
+\@writefile{toc}{\contentsline {paragraph}{Problem 4 -- How much do two extra strokes teach us? (KL as information gain)}{9}{paragraph*.29}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Information gained by two extra strokes.}}{9}{table.caption.30}\protected@file@percent }
+\newlabel{tab:p4}{{15}{9}{Information gained by two extra strokes}{table.caption.30}{}}
+\@writefile{toc}{\contentsline {paragraph}{Problem 5 -- Ideal observer and Bayes (\textbf  {[ILLUSTRATIVE]}{}, to be replaced by real judgments)}{9}{paragraph*.31}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Joint probabilities for Problem 5 \textbf  {[ILLUSTRATIVE]}.}}{10}{table.caption.32}\protected@file@percent }
+\newlabel{tab:p5}{{16}{10}{Joint probabilities for Problem 5 \tagill }{table.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.5}Interpretation and limits}{10}{subsection.B.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility and AI disclosure.}{10}{paragraph*.33}\protected@file@percent }
+\gdef \@abspage@last{10}

@@ -1,74 +1,32 @@
-\section{Three-Frame Validation: OpenSim versus Vizard}
-\label{sec:validacion}
+\section{Three-frame validation: OpenSim versus Vizard}\label{sec:validation}
 
-To demonstrate the fidelity of the virtual environment against the reference OpenSim musculoskeletal simulation, three key representative timestamps were selected across the stroke:
-\begin{enumerate}[leftmargin=*]
-  \item \textbf{V1 ($t = 2.500\text{ s}$, Frame 150):} Preparation phase and completion of backswing, characterized by moderate elbow flexion and a lowered racket position.
-  \item \textbf{V2 ($t = 3.083\text{ s}$, Frame 185):} Instant of maximum linear racket proxy speed ($v_{\text{proxy}} = 9.85\text{ m/s}$), corresponding to nominal ball impact.
-  \item \textbf{V3 ($t = 3.600\text{ s}$, Frame 216):} Follow-through and deceleration phase, where the striking limb moves upward and across the chest.
-\end{enumerate}
-
-\subsection{Numerical Comparison of Kinematic Variables}
-Two independent kinematic metrics were verified:
-\begin{itemize}[leftmargin=*]
-  \item \textbf{Left elbow flexion ($\theta_{\text{elbow}}$):} In \Vizard{}, computed from upper arm, forearm, and hand segment positions:
-  \begin{equation}
-    \theta_{\text{elbow}} = 180^{\circ} - \arccos\left(\frac{\mathbf{v}_{\text{shoulder}\to\text{elbow}} \cdot \mathbf{v}_{\text{wrist}\to\text{elbow}}}{\|\mathbf{v}_{\text{shoulder}\to\text{elbow}}\| \|\mathbf{v}_{\text{wrist}\to\text{elbow}}\|}\right).
-  \end{equation}
-  \item \textbf{Left hand vertical height ($Y_{\text{hand}}$):} Cartesian vertical coordinate of the left wrist segment relative to the floor (in meters).
-\end{itemize}
-
-Paired numerical results, absolute discrepancies, and percentage differences are detailed in Table~\ref{tab:comparacion_opensim_vizard}.
+Elbow flexion in Vizard is computed from segment positions,
+\begin{equation}
+    \theta = 180^\circ - \arccos\!\left[\frac{\mathbf{v}_{se}\cdot\mathbf{v}_{we}}{\lVert\mathbf{v}_{se}\rVert\,\lVert\mathbf{v}_{we}\rVert}\right],
+    \label{eq:elbow}
+\end{equation}
+with $\mathbf{v}_{se}$ (shoulder$\to$elbow) and $\mathbf{v}_{we}$ (wrist$\to$elbow); hand height is the vertical coordinate of the left hand segment. Frames: \textbf{V1} end of backswing (f150), \textbf{V2} peak racket-proxy speed, \SI{7.84}{\meter\per\second} (f185), \textbf{V3} follow-through (f216).
 
 \input{tables/tabla_comparacion_opensim_vizard.tex}
 
-\begin{figure*}[t]
-  \centering
-  \begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t2500.png}
-    \caption{V1: Preparation ($t = 2.500\text{ s}$)}
-    \label{fig:vizard_v1}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t3083.png}
-    \caption{V2: Impact / Peak speed ($t = 3.083\text{ s}$)}
-    \label{fig:vizard_v2}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.32\textwidth}
-    \includegraphics[width=\textwidth,height=2.8cm,keepaspectratio]{vizard_t3600.png}
-    \caption{V3: Follow-through ($t = 3.600\text{ s}$)}
-    \label{fig:vizard_v3}
-  \end{subfigure}
-  \vspace{-0.25cm}
-  \caption{Synchronized Vizard screenshots at the three validation timestamps, displaying segment skeleton, retargeted avatar, tournament table, and real-time quantitative HUD.}
-  \label{fig:vizard_tres_frames}
-\end{figure*}
+% \begin{figure}[t]
+% \centering
+% % Top row: Vizard screenshots. Bottom row: matching OpenSim frames (V1-V3.png).
+% % If V1--V3.png are actually the Vizard captures, swap the file names between rows.
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t2500.png}\caption{Vizard, $t=2.500$ s (V1)}\end{subfigure}\hfill
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3083.png}\caption{Vizard, $t=3.083$ s (V2)}\end{subfigure}\hfill
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{vizard_t3600.png}\caption{Vizard, $t=3.600$ s (V3)}\end{subfigure}\\[4pt]
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V1.png}\caption{OpenSim, $t=2.500$ s}\end{subfigure}\hfill
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V2.png}\caption{OpenSim, $t=3.083$ s}\end{subfigure}\hfill
+% \begin{subfigure}{0.32\textwidth}\includegraphics[width=\linewidth]{V3.png}\caption{OpenSim, $t=3.600$ s}\end{subfigure}
+% \caption{Vizard (top) and OpenSim (bottom) at the three validation timestamps (skeleton, avatar, table, ruler, HUD).}\label{fig:three-frames}
+% \end{figure}
 
-\begin{figure*}[t]
-  \centering
-  \begin{subfigure}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth,height=3.3cm,keepaspectratio]{comp_elbow_flex.png}
-    \caption{Continuous left elbow flexion trajectory (degrees)}
-    \label{fig:comp_elbow}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth,height=3.3cm,keepaspectratio]{comp_hand_height.png}
-    \caption{Continuous left hand vertical height trajectory (meters)}
-    \label{fig:comp_height}
-  \end{subfigure}
-  \vspace{-0.25cm}
-  \caption{Continuous time-series comparison between OpenSim (\texttt{Rajagopal2015.osim}) and Vizard across the entire recorded stroke ($60\text{ Hz}$). Both acceleration, impact, and deceleration profiles demonstrate near-identical morphological and temporal tracking.}
-  \label{fig:curvas_comparacion}
-\end{figure*}
+% \begin{figure}[t]
+%     \centering
+%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{comp_elbow_flex.png}\caption{Left elbow flexion [deg]}\end{subfigure}\hfill
+%     \begin{subfigure}{0.48\textwidth}\includegraphics[width=\linewidth]{comp_hand_height.png}\caption{Left hand height [m]}\end{subfigure}
+%     \caption{Continuous OpenSim--Vizard time series over the full trial (\SI{60}{\hertz}), with the three validation instants V1--V3 marked.}\label{fig:timeseries}
+% \end{figure}
 
-\subsection{Analytical Discussion of Discrepancies}
-As demonstrated in Table~\ref{tab:comparacion_opensim_vizard} and Figure~\ref{fig:curvas_comparacion}, kinematic concordance is robust:
-\begin{enumerate}[leftmargin=*]
-  \item \textbf{Elbow Flexion:} Absolute discrepancies range between $-0.38^{\circ}$ and $+5.12^{\circ}$. The $5.12^{\circ}$ discrepancy at $t = 3.083\text{ s}$ occurs at peak arm extension ($15.48^{\circ}$ in OpenSim vs. $20.60^{\circ}$ in Vizard). This arises because \texttt{Rajagopal2015.osim} models the humeroulnar joint as an idealized 1-DoF revolute hinge with constrained joint axes, whereas Vizard computes the 3D angle from three independent IMU-tracked bone segments, which include minor carrying angle variations and soft-tissue motion artifacts.
-  \item \textbf{Hand Height:} Vertical deviations remain below $4.3\text{ cm}$ during preparation and impact ($\Delta = -0.043\text{ m}$ and $+0.029\text{ m}$), with an elevation difference of $10.9\text{ cm}$ at the apex of follow-through ($t = 3.600\text{ s}$). OpenSim enforces rigid kinematic chain linkage constraints across clavicle and scapula, whereas direct inertial sensor integration in Vizard captures global pelvis vertical translation and shoulder girdle shrugging during violent deceleration.
-\end{enumerate}
-
-These checks confirm that Vizard preserves authentic movement timing and spatial trajectory fidelity without introducing perceptual artifacts.
+\paragraph{Reading the checks.} Elbow angle agrees within $5.12^\circ$ at all three instants; the largest value occurs near full extension ($15.5^\circ$ vs.\ $20.6^\circ$), where a small absolute error is a large relative one ($33\,\%$). Likely cause: OpenSim models the elbow as a 1-DoF hinge, whereas Vizard derives the angle from three IMU-tracked segments that include carrying-angle and soft-tissue artifacts. Hand height is within \SI{4}{\centi\meter} at V1 and V2 but \textbf{\SI{10.4}{\centi\meter} at V3}, which we do not regard as negligible. Candidate causes, to be tested rather than assumed: (i)~scapular/clavicular constraints in OpenSim versus free shoulder-girdle motion in the IMU data; (ii)~a different anatomical point (OpenSim hand centre vs.\ Xsens hand-segment origin); (iii)~a one-frame (\SI{16.7}{\milli\second}) offset during fast upward motion, checkable by comparing frames 215 and 217. Because the affordance criterion is evaluated at V2 (error \SI{2.7}{\centi\meter} in height), this mismatch matters mainly for conditions near the boundary (Section~\ref{sec:affordance}).

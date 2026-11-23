@@ -1,24 +1,22 @@
 \begin{table*}[t]
-    \centering
-    \caption{Experimental results of the affordance investigation in Vizard across the four ordered conditions.}
-    \label{tab:condiciones_affordancia}
-    \small
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}cccccccl@{}}
-        \toprule
-        \textbf{Condition} & \textbf{Offset $d$ (m)} & \textbf{Predicted Possibility} & \textbf{Min. Dist. ($d_{\min}$)} & \textbf{Time ($t_{\min}$)} & \textbf{Frame} & \textbf{Threshold ($R_{c}$)} & \textbf{Criterion Result} \\
-        \midrule
-        $C_1$ & $0.00\text{ m}$ & Feasible (Interception) & $0.000\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{INTERCEPT} (Feasible) \\
-        $C_2$ & $0.08\text{ m}$ & Feasible (Interception) & $0.080\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{INTERCEPT} (Feasible) \\
-        \midrule
-        \multicolumn{8}{c}{\textit{--- Predicted Feasibility Boundary ($R_c = R_{\text{paddle}} + R_{\text{ball}} = 0.075 + 0.020 = 0.095\text{ m}$) ---}} \\
-        \midrule
-        $C_3$ & $0.15\text{ m}$ & Infeasible (No contact) & $0.150\text{ m}$ & $3.083\text{ s}$ & $185$ & $0.095\text{ m}$ & \textbf{NO INTERCEPT} (Infeasible) \\
-        $C_4$ & $0.30\text{ m}$ & Infeasible (No contact) & $0.296\text{ m}$ & $1.683\text{ s}$ & $101$ & $0.095\text{ m}$ & \textbf{NO INTERCEPT} (Infeasible) \\
-        \bottomrule
-    \end{tabular*}
-    \vspace{0.1cm}
-    \begin{minipage}{\textwidth}
-        \footnotesize
-        \textbf{Definitions:} $d$ represents the outward ball offset perpendicular to the pelvis along the stroke plane from the peak proxy velocity location. Geometric interception is satisfied if and only if $d_{\min} \le R_{\text{paddle}} + R_{\text{ball}} = 0.095\text{ m}$. Conditions $C_2$ and $C_3$ bound opposite sides of the predicted feasibility threshold.
-    \end{minipage}
+\centering
+\caption{Ordered conditions and criterion results \tagsim.}\label{tab:conditions}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}clcccccll@{}}
+\toprule
+\textbf{Cond.} & \textbf{Predicted (model)} & $d$ (m) & \dmin\ (m) & \tmin\ (s) & $\tmin-\tref$ & $\Rc-\dmin$ & \textbf{Result} & \textbf{Visual evidence}\\
+\midrule
+C1 & Feasible & 0.00 & 0.000 & 3.083 & 0 ms$^{*}$ & $+0.095$ m & Intercept & Fig.~\ref{fig:conditions}a, f185\\
+C2 & Feasible (near boundary) & 0.08 & 0.080 & 3.083 & 0 ms$^{*}$ & $+0.015$ m & Intercept & Fig.~\ref{fig:conditions}b, f185\\
+C3 & Infeasible & 0.15 & 0.150 & 3.083 & 0 ms$^{*}$ & $-0.055$ m & No contact & Fig.~\ref{fig:conditions}c, f185\\
+C4 & Infeasible & 0.30 & 0.296 & 1.683 & $-1.400$ s$^{\dagger}$ & $-0.201$ m & No contact & Fig.~\ref{fig:conditions}d, f101\\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\begin{minipage}{0.95\textwidth}\footnotesize
+$^{*}$ Zero by construction: the ball is placed relative to the proxy position at $\tref=3.083$~s.
+$^{\dagger}$ In C4 the closest approach is at f101, the peak-speed frame of the earlier stroke S1 (Annex~\ref{app:info}); it is a genuine impact of another stroke, not of the reference stroke S2.
+\end{minipage}
 \end{table*}
