@@ -35,8 +35,9 @@ Scripts read the CSV files from *motion-data/* automatically.
 - 8.3.1 Vizard Free 64-bit
 
 ## Dependencies
-- Vizard 8.3.1 only 
+- Vizard 8.3.1 
 - Vizard built-in resources: *ground.osgb*, *sky_day.osgb*, *vcc_male.cfg*.
+- Python 3.14.6 with libraries: *csv*, *os*, *math*.
 - OpenSim and MATLAB are not needed to run the scene.
 
 ## Controls
